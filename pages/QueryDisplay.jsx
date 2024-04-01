@@ -56,6 +56,9 @@
 
 import { useState, useEffect } from 'react';
 
+import styles from '../styles/Home.module.css';
+
+
 export default function QueryDisplay() {
 	const [json_from_databace, setJSON] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -66,14 +69,14 @@ export default function QueryDisplay() {
 			try {
 				const response = await fetch('http://localhost:3000/select/aircraft_types');
 				if (!response.ok) {
-					throw new Error('Failed to fetch flights');
+					throw new Error('Failed to fetch data');
 				}
 				const data = await response.json();
 				console.log('Data:', data);
 				setJSON(data);
 				setLoading(false);
 			} catch (error) {
-				console.error('Error fetching flights:', error);
+				console.error('Error fetching data:', error);
 				setError(error);
 				setLoading(false);
 			}
@@ -83,37 +86,40 @@ export default function QueryDisplay() {
 	}, []);
 
 	if (loading) {
-		return <p>Loading...</p>;
+		return <div className={styles.myboxborder}>
+			<DebugInfo component_name="QueryDisplay" />
+
+			<p>Loading...</p>;
+		</div>
 	}
 
 	if (error) {
-		return <p>Error: {error.message}</p>;
+		return <div className={styles.myboxborder}>
+			<DebugInfo component_name="QueryDisplay" />
+
+			<p>Error: {error.message}</p>;
+		</div>
 	}
 
 	return (
-		<div>
+		<div className={styles.myboxborder}>
+			<DebugInfo component_name="QueryDisplay" />
+
 			<h2>Flight List</h2>
 
 			<DisplayTableFromJSON json_data={json_from_databace} />
-			{/* <table>
-				<thead>
-					<tr>
-						{json_from_databace.fields.map(field => (
-							<th key={field.name}>{field.name}</th>
-						))}
-					</tr>
-				</thead>
-				<tbody>
-					{json_from_databace.rows.map((row, index) => (
-						<tr key={index}>
-							{json_from_databace.fields.map(field => (
-								<td key={`${index}-${field.name}`}>{row[field.name]}</td>
-							))}
-						</tr>
-					))}
-				</tbody>
-			</table> */}
 		</div>
+	);
+};
+
+
+
+const DebugInfo = (data) => {
+	return (
+		<div className={styles.myboxborder}>
+			[DEBUG Info] React Component: {data.component_name}
+		</div>
+
 	);
 };
 
