@@ -2,8 +2,13 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Header from './header';
 import Footer from './footer';
+import QueryDisplay from './QueryDisplay';
 
 export default function Home() {
+
+
+
+
 
   console.log('Hello!');
 
@@ -11,6 +16,8 @@ export default function Home() {
     <div className={styles.container}>
 
       <Header />
+
+      <QueryDisplay />
 
       <Head>
         <title>Create Next App</title>
