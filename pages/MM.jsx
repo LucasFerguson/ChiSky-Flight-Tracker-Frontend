@@ -22,7 +22,7 @@ const PageDetailingHomePage = () => {
     setTextInput(event.target.value);
   };
 
-  const h3Styles = {
+  const h2Styles = {
     textAlign: 'center'
   };
 
@@ -36,7 +36,7 @@ const PageDetailingHomePage = () => {
     <div>
       <header>
       <img src={"http://localhost:3000/logo.webp"} alt="Logo" style={{ float: 'right', width: '100px', height: '100px' }}/> {/*Logo image */}
-        <h3 style={h3Styles}>Select a query to run</h3>
+        <h2 style={h2Styles}>Select a query to run</h2>
       </header>
       <div>
         <aside>
@@ -49,7 +49,7 @@ const PageDetailingHomePage = () => {
               <option value="table3">Routes</option>
               <option value="table4">Aircraft Status</option>
               <option value="table5">Airlines</option>
-              <option value="table6">flights</option>
+              <option value="table6">Flights</option>
             </select>
           </div>
           <br></br>
@@ -62,25 +62,21 @@ const PageDetailingHomePage = () => {
         <div>
             <label>Operations: </label>
             <button style={buttonStyle} value="Create" onClick={handleOperation} >Create</button>
-             {/* hyper links */}
             <button style={buttonStyle} value="Read" onClick={handleOperation}>Read</button>
-            {/* hyper links */}
             <button style={buttonStyle} value="Update" onClick={handleOperation}>Update</button>
-            {/* hyper links */}
             <button style={buttonStyle} value="Delete" onClick={handleOperation}>Delete</button>
-            {/* hyper links */}
           </div>
           <br></br>
           <div>
-            <label>User Input</label>
+            <label>User Input: </label>
             <input type="text" value={textInput} onChange={handleTextInputChange} />
           </div>
 
           
-          {selectedOperation == "create" && <CreateOperation />}
-          {selectedOperation == "read" && <ReadOperation />}
-          {selectedOperation == "update" && <UpdateOperation />}
-          {selectedOperation == "delete" && <DeleteOperation />}
+          {selectedOperation == "Create" && <CreateOperation />}
+          {selectedOperation == "Read" && <ReadOperation />}
+          {selectedOperation == "Update" && <UpdateOperation />}
+          {selectedOperation == "Delete" && <DeleteOperation />}
           
           {/* <QueryDisplay></QueryDisplay> */}
           
