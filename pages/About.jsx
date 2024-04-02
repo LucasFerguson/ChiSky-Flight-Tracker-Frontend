@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/Home.module.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Header from './header';
 
 
 const AboutMe = () => {
@@ -36,9 +37,13 @@ const AboutMe = () => {
   ];
 
   return (
+    <div className={styles.homepage}>
+      <Header />
+
+      <div></div>
     <div className={styles['about-me-container']}>
       <div className={styles['about-us']}>
-        <h2>About Us</h2>
+        <h2>About Our Team</h2>
         <p>This is a brief description of our team or organization.</p>
       </div>
       <div className={styles['people-list']}>
@@ -58,6 +63,7 @@ const AboutMe = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };
