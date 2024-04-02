@@ -33,7 +33,7 @@ function DeleteAirport() {
 			<form onSubmit={handleSubmit}>
 				<label>
 					ICAO Code:
-					<input type="text" value={icao_code} onChange={handleChange} />
+					<input type="text" value={icaoCode} onChange={handleChange} />
 				</label>
 				<br />
 				<button type="submit">Delete</button>
