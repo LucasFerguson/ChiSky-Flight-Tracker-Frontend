@@ -9,11 +9,15 @@ export default function ReadOperation(data) {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-	
-	
-
 	useEffect(() => {
 		const fetchData = async (tableName) => {
+
+			if (tableName == "") {
+				console.log("Please Select Table!")
+				return;
+			}
+
+
 			try {
 				console.log("tableName= " + tableName)
 				const response = await fetch(`http://localhost:3011/select/${tableName}`);
@@ -32,12 +36,12 @@ export default function ReadOperation(data) {
 		};
 
 		fetchData(data.table);
-	}, []);
+	}, [data.table]);
 
 	if (loading) {
 		return <div>
 			<DebugInfo component_name="QueryDisplay" />
-
+			<p>Selected Table: {data.table}</p>
 			<p>Loading...</p>;
 		</div>
 	}
@@ -45,7 +49,7 @@ export default function ReadOperation(data) {
 	if (error) {
 		return <div>
 			<DebugInfo component_name="QueryDisplay" />
-
+			<p>Selected Table: {data.table}</p>
 			<p>Error: {error.message}</p>;
 		</div>
 	}
@@ -54,8 +58,8 @@ export default function ReadOperation(data) {
 		<div>
 
 			<DebugInfo component_name="QueryDisplay" />
-
-			<h2>57938579834987347983495873</h2>
+			<p>Selected Table: {data.table}</p>
+			<h2>Read</h2>
 
 			<DisplayTableFromJSON json_data={json_from_database} />
 		</div>
