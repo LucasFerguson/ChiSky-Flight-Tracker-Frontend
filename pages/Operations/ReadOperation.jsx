@@ -9,9 +9,6 @@ export default function ReadOperation(data) {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-
-
-
 	useEffect(() => {
 		const fetchData = async (tableName) => {
 
@@ -39,7 +36,7 @@ export default function ReadOperation(data) {
 		};
 
 		fetchData(data.table);
-	}, []);
+	}, [data.table]);
 
 	if (loading) {
 		return <div>
