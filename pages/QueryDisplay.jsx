@@ -60,14 +60,14 @@ import styles from '../styles/Home.module.css';
 
 
 export default function QueryDisplay() {
-	const [json_from_databace, setJSON] = useState([]);
+	const [json_from_database, setJSON] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch('http://localhost:3000/select/aircraft_types');
+				const response = await fetch('http://localhost:3011/select/flights');
 				if (!response.ok) {
 					throw new Error('Failed to fetch data');
 				}
@@ -107,7 +107,7 @@ export default function QueryDisplay() {
 
 			<h2>Flight List</h2>
 
-			<DisplayTableFromJSON json_data={json_from_databace} />
+			<DisplayTableFromJSON json_data={json_from_database} />
 		</div>
 	);
 };
