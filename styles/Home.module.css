@@ -67,6 +67,8 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  text-align: center;
+  font-family: Arial, sans-serif;
 }
 
 .person-container {
@@ -95,5 +97,6 @@
 
 .person-details {
   text-align: center;
+  font-family: Arial, sans-serif;
   padding: 10px;
 }
