@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
-
+import QueryDisplay from './QueryDisplay';
+import CreateOperation from './Operations/CreateOperation';
+import UpdateOperation from './Operations/UpdateOperation';
+import ReadOperation from './Operations/ReadOperation';
+import DeleteOperation from './Operations/DeleteOperation';
 const PageDetailingHomePage = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const [textInput, setTextInput] = useState('');
+  const [selectedOperation, setselectedOperation] = useState('Create');
 
+  
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
+  };
+
+  const handleOperation = (event) => {
+    setselectedOperation(event.target.value);
   };
 
   const handleTextInputChange = (event) => {
     setTextInput(event.target.value);
   };
 
-  const h4Styles = {
+  const h3Styles = {
     textAlign: 'center'
   };
 
@@ -25,7 +35,8 @@ const PageDetailingHomePage = () => {
   return (
     <div>
       <header>
-        <h4 style={h4Styles}>Select a query to run</h4>
+      <img src={"http://localhost:3000/logo.webp"} alt="Logo" style={{ float: 'right', width: '100px', height: '100px' }}/> {/*Logo image */}
+        <h3 style={h3Styles}>Select a query to run</h3>
       </header>
       <div>
         <aside>
@@ -50,13 +61,13 @@ const PageDetailingHomePage = () => {
         <main>
         <div>
             <label>Operations: </label>
-            <button style={buttonStyle}>Create</button>
+            <button style={buttonStyle} value="Create" onClick={handleOperation} >Create</button>
              {/* hyper links */}
-            <button style={buttonStyle}>Read</button>
+            <button style={buttonStyle} value="Read" onClick={handleOperation}>Read</button>
             {/* hyper links */}
-            <button style={buttonStyle}>Update</button>
+            <button style={buttonStyle} value="Update" onClick={handleOperation}>Update</button>
             {/* hyper links */}
-            <button style={buttonStyle}>Delete</button>
+            <button style={buttonStyle} value="Delete" onClick={handleOperation}>Delete</button>
             {/* hyper links */}
           </div>
           <br></br>
@@ -65,7 +76,13 @@ const PageDetailingHomePage = () => {
             <input type="text" value={textInput} onChange={handleTextInputChange} />
           </div>
 
-          <Quert
+          
+          {selectedOperation == "create" && <CreateOperation />}
+          {selectedOperation == "read" && <ReadOperation />}
+          {selectedOperation == "update" && <UpdateOperation />}
+          {selectedOperation == "delete" && <DeleteOperation />}
+          
+          {/* <QueryDisplay></QueryDisplay> */}
           
         </main>
       </div>
