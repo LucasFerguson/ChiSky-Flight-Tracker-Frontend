@@ -11,6 +11,7 @@ import Header from './header';
 import styles from '../styles/Home.module.css';
 
 const PageDetailingHomePage = () => {
+
   const [selectedOption, setSelectedOption] = useState('');
   const [textInput, setTextInput] = useState('');
   const [selectedOperation, setselectedOperation] = useState('Create');

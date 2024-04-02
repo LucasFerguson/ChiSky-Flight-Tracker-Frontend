@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from '../styles/Home.module.css';
+import Header from './header';
 
 const AboutMe = () => {
+
   const people = [
     {
       name: 'Lucas Fergurson',
@@ -27,6 +29,7 @@ const AboutMe = () => {
 
   return (
     <div className={styles['about-me-container']}>
+         <Header />
       {people.map((person, index) => (
         <div key={index} className={styles['person-container']}>
           <div className={styles['avatar']}>

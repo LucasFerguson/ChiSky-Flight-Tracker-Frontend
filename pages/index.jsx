@@ -3,8 +3,8 @@ import styles from '../styles/Home.module.css';
 import Header from './header';
 import Footer from './footer';
 import QueryDisplay from './QueryDisplay';
-
 import ConsoleApp from "./ConsoleApp";
+
 
 
 export default function Home() {
@@ -13,8 +13,8 @@ export default function Home() {
 
   let aaaaa = new ConsoleApp();
 
-
   return (
+    
     <div className={styles.homepage}>
 
       <Header />
