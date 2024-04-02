@@ -73,7 +73,7 @@
   width: 200px;
   padding: 20px;
   border: 2px solid #ccc;
-  border-radius: 50%;
+  border-radius: 10px; /* Adjust border-radius for smoother edges */
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -91,10 +91,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
 }
 
 .person-details {
   text-align: center;
-  padding: 10px; /* Adjust padding for text inside border */
+  padding: 10px;
 }
