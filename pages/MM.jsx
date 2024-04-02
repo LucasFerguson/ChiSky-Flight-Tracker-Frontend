@@ -17,13 +17,14 @@ const PageDetailingHomePage = () => {
 
 
   let aaaaa = new ConsoleApp();
-  
+
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
   const handleOperation = (event) => {
     setselectedOperation(event.target.value);
+
   };
 
   const handleTextInputChange = (event) => {
@@ -39,13 +40,13 @@ const PageDetailingHomePage = () => {
     marginRight: '10px' // Adjust this value as needed for the desired spacing
   };
 
-  
+
 
   return (
-    
+
     <div className={styles.homepage}>
-    <Header />
-     
+      <Header />
+
       <div>
         <aside>
           <div>
@@ -62,12 +63,12 @@ const PageDetailingHomePage = () => {
           </div>
           <br></br>
           <div>
-            <button>Run</button>
+            <button>Run</button> (Dose nothing currently)
           </div>
           <br></br>
         </aside>
         <main>
-        <div>
+          <div>
             <label style={TextStyles}>Operations: </label>
             <button style={buttonStyle} value="Create" onClick={handleOperation} >Create</button>
             <button style={buttonStyle} value="Read" onClick={handleOperation}>Read</button>
@@ -78,22 +79,27 @@ const PageDetailingHomePage = () => {
           <div>
             <label style={TextStyles}>User Input: </label>
             <input type="text" value={textInput} onChange={handleTextInputChange} />
+            (Dose nothing currently)
           </div>
 
           <div className={styles.myboxborder}>
             {selectedOperation == "Create" && <CreateOperation table={selectedOption} />}
             {selectedOperation == "Read" && <ReadOperation table={selectedOption} />}
-            {selectedOperation == "Update" && <UpdateOperation table={selectedOption}/>}
-            {selectedOperation == "Delete" && <DeleteOperation table={selectedOption}/>}
+            {selectedOperation == "Update" && <UpdateOperation table={selectedOption} />}
+            {selectedOperation == "Delete" && <DeleteOperation table={selectedOption} />}
           </div>
 
           {/* <QueryDisplay></QueryDisplay> */}
           {/* {ConsoleApp.render()} */}
-
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
           <div className={styles.myboxborder}>
+            <h3>Console</h3>
             <ConsoleApp />
           </div>
-          
+
         </main>
       </div>
     </div>
