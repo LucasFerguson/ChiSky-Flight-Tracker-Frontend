@@ -25,6 +25,9 @@ function AirportForm() {
 		console.log("handleSubmit, e =", e);
 		console.log("handleSubmit, formData =", formData);
 
+		let body = JSON.stringify(formData);
+		console.log("handleSubmit, body =", body);
+
 		try {
 			console.log("fetch http://localhost:3011/insert/airport");
 			const response = await fetch('http://localhost:3011/insert/airport', {
@@ -32,7 +35,7 @@ function AirportForm() {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(formData),
+				body: body,
 			});
 			console.log("response: ", response);
 
