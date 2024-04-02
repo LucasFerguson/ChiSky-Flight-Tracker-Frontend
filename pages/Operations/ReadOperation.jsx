@@ -9,11 +9,18 @@ export default function ReadOperation(data) {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-	
-	
+
+
 
 	useEffect(() => {
 		const fetchData = async (tableName) => {
+
+			if (tableName == "") {
+				console.log("Please Select Table!")
+				return;
+			}
+
+
 			try {
 				console.log("tableName= " + tableName)
 				const response = await fetch(`http://localhost:3011/select/${tableName}`);
