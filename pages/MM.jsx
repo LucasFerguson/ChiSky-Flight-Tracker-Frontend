@@ -64,6 +64,9 @@ const PageDetailingHomePage = () => {
             <label>User Input</label>
             <input type="text" value={textInput} onChange={handleTextInputChange} />
           </div>
+
+          <Quert
+          
         </main>
       </div>
     </div>
