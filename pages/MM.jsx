@@ -9,6 +9,7 @@ import Header from './header';
 
 
 import styles from '../styles/Home.module.css';
+import Advanced from './Operations/Advanced';
 
 const PageDetailingHomePage = () => {
 
@@ -73,6 +74,7 @@ const PageDetailingHomePage = () => {
           <button style={buttonStyle} value="Read" onClick={handleOperation}>Read</button>
           <button style={buttonStyle} value="Update" onClick={handleOperation}>Update</button>
           <button style={buttonStyle} value="Delete" onClick={handleOperation}>Delete</button>
+          <button style={buttonStyle} value="Advanced" onClick={handleOperation}>Advanced</button>
         </div>
         <br></br>
         <div>
@@ -86,6 +88,7 @@ const PageDetailingHomePage = () => {
           {selectedOperation == "Read" && <ReadOperation table={selectedOption} />}
           {selectedOperation == "Update" && <UpdateOperation table={selectedOption} />}
           {selectedOperation == "Delete" && <DeleteOperation table={selectedOption} />}
+          {selectedOperation == "Advanced" && <Advanced table={selectedOption} />}
         </div>
 
         {/* <QueryDisplay></QueryDisplay> */}

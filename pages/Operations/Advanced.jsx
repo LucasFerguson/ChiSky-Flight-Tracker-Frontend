@@ -1,10 +1,9 @@
-// CreateOperation
+// Advanced
 import React, { useState } from 'react';
 
+export default function Advanced(data) {
 
-export default function CreateOperation(data) {
-
-	const [query_text, setQueryText] = useState('');
+	const [query_text, setQueryText] = useState(`SELECT * FROM flights WHERE flightid='UAL2610'`);
 	const [json_from_database, setJSON] = useState({ fields: [], rows: [] });
 
 	const handleChange = (e) => {
@@ -41,12 +40,12 @@ export default function CreateOperation(data) {
 			<p>Selected Table: {data.table}</p>
 			<form onSubmit={handleSubmit}>
 				<label>
-					Enter Primary Key of row to delete:
+					Enter SQL Query:
 
 					{/* <input type="text" value={icaoCode} onChange={handleChange} /> */}
 				</label>
 
-				<div><textarea onChange={handleChange} /></div>
+				<div><textarea rows={5} cols={50} value={`SELECT * FROM flights WHERE flightid='UAL2610'`} onChange={handleChange} /> </div>
 				<div>
 					<button type="submit">Run</button>
 				</div>
