@@ -8,7 +8,7 @@ export default class ConsoleApp extends React.Component {
 
   componentDidMount() {
     Hook(window.console, log => {
-      this.setState(({ logs }) => ({ logs: [...logs, Decode(log)] }))
+      this.setState(({ logs }) => ({ logs: [Decode(log), ...logs] }))
     })
 
     console.log(`Hello world!`)
