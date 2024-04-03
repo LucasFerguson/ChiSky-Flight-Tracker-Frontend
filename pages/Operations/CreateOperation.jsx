@@ -1,29 +1,93 @@
 // CreateOperation
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 
 export default function CreateOperation(data) {
+	const [json_from_database, setJSON] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+	const [formData, setFormData] = useState({});
 
-	// handleSubmit = (event) => {
-	// 	event.preventDefault();
-	// 	console.log("Submit button clicked");
-	// }
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData(prevState => ({
+			...prevState,
+			[name]: value
+		}));
+	}
 
+	useEffect(() => {
+		const fetchData = async (tableName) => {
+			if (tableName === "") {
+				console.log("Please Select Table!")
+				return;
+			}
+			try {
+				console.log("tableName= " + tableName)
+				const response = await fetch(`http://localhost:3011/select/${tableName}`);
+				if (!response.ok) {
+					throw new Error('Failed to fetch data');
+				}
+				const data = await response.json();
+				console.log('Data:', data);
+				setJSON(data);
+				setLoading(false);
+			} catch (error) {
+				console.error('Error fetching data:', error);
+				setError(error);
+				setLoading(false);
+			}
+		};
 
+		fetchData(data.table);
+	}, [data.table]);
 
-	return <div>
+	if (loading) {
+		return (
+			<div>
+				<p>Selected Table: {data.table}</p>
+				<p>Loading...</p>;
+			</div>
+		);
+	}
+
+	if (error) {
+		return (
+			<div>
+				<p>Selected Table: {data.table}</p>
+				<p>Error: {error.message}</p>;
+			</div>
+		);
+	}
+
+	return (
 		<div>
-			<h2> Create Operation Page</h2>
 			<p>Selected Table: {data.table}</p>
-			{/* <form onSubmit={handleSubmit}>
+			<h2>Read - just life advice</h2>
 
-			</form> */}
-			{/* <h2> Data </h2>
-			<DisplayTableFromJSON json_data={json_from_database} /> */}
-
+			{json_from_database.fields.map(field => (
+				<div key={field.name}>
+					<label>{field.name}:</label>
+					<input
+						type='text'
+						name={field.name}
+						onChange={handleChange}
+					/><br />
+				</div>
+			))}
 		</div>
-	</div>
+	);
 }
+
+
+
+const DebugInfo = (data) => {
+	return (
+		<div>
+			[DEBUG Info] React Component: {data.component_name}
+		</div>
+
+	);
+};
 
 
 const DisplayTableFromJSON = ({ json_data }) => {
@@ -48,19 +112,3 @@ const DisplayTableFromJSON = ({ json_data }) => {
 		</table>
 	);
 };
-
-
-
-
-
-// // DeleteOperation
-
-// import DeleteAirport from "../DeleteAirport"
-// import styles from '../../styles/Home.module.css';
-// import React, { useState } from 'react';
-// export default function DeleteOperation(data) {
-
-
-
-
-// }
