@@ -41,11 +41,40 @@ export default function CreateOperation(data) {
 		fetchData(data.table);
 	}, [data.table]);
 
+
+	// handleSubmit
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		console.log('Form Data:', formData);
+		const { table } = data; // Destructuring the 'data' object to extract the 'table' property
+
+		try {
+			const response = await fetch(`http://localhost:3011/insert/${table}`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
+			if (!response.ok) {
+				throw new Error('Failed to insert data');
+			}
+			const data = await response.json();
+			console.log('Data:', data);
+		} catch (error) {
+			console.error('Error inserting data:', error);
+		}
+
+
+	}
+
+
 	if (loading) {
 		return (
 			<div>
 				<p>Selected Table: {data.table}</p>
-				<p>Loading...</p>;
+				<p>Error: Please Select Table!</p>
+				<p>Loading...</p>
 			</div>
 		);
 	}
@@ -54,7 +83,7 @@ export default function CreateOperation(data) {
 		return (
 			<div>
 				<p>Selected Table: {data.table}</p>
-				<p>Error: {error.message}</p>;
+				<p>Error: {error.message}</p>
 			</div>
 		);
 	}
@@ -62,18 +91,24 @@ export default function CreateOperation(data) {
 	return (
 		<div>
 			<p>Selected Table: {data.table}</p>
-			<h2>Read - just life advice</h2>
+			<h2>Create Operation</h2>
+			<p>Enter Data</p>
+			<form onSubmit={handleSubmit}>
 
-			{json_from_database.fields.map(field => (
-				<div key={field.name}>
-					<label>{field.name}:</label>
-					<input
-						type='text'
-						name={field.name}
-						onChange={handleChange}
-					/><br />
-				</div>
-			))}
+				{json_from_database.fields.map(field => (
+					<div key={field.name}>
+						<label>{field.name}:</label>
+						<input
+							type='text'
+							name={field.name}
+							onChange={handleChange}
+						/><br />
+					</div>
+				))}
+
+				<button>Submit</button>
+			</form>
+
 		</div>
 	);
 }
