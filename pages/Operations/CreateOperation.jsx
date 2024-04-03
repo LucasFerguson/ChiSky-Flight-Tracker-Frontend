@@ -4,57 +4,22 @@ import React, { useState } from 'react';
 
 export default function CreateOperation(data) {
 
-	const [query_text, setQueryText] = useState('');
-	const [json_from_database, setJSON] = useState({ fields: [], rows: [] });
+	// handleSubmit = (event) => {
+	// 	event.preventDefault();
+	// 	console.log("Submit button clicked");
+	// }
 
-	const handleChange = (e) => {
-		console.log(e);
-		setQueryText(e.target.value);
-	};
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		try {
-			const response = await fetch(`http://localhost:3011/query`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ query: query_text }),
-			});
-			if (response.ok) {
-				console.log('Run successfully');
-				const data = await response.json();
-				console.log('Data:', data);
-				setJSON(data);
-			} else {
-				throw new Error('Failed to fetch data');
-			}
-		} catch (error) {
-			console.error('Error:', error.message);
-		}
-	};
 
 	return <div>
 		<div>
 			<h2> Create Operation Page</h2>
 			<p>Selected Table: {data.table}</p>
-			<form onSubmit={handleSubmit}>
-				<label>
-					Enter Primary Key of row to delete:
+			{/* <form onSubmit={handleSubmit}>
 
-					{/* <input type="text" value={icaoCode} onChange={handleChange} /> */}
-				</label>
-
-				<div><textarea onChange={handleChange} /></div>
-				<div>
-					<button type="submit">Run</button>
-				</div>
-
-				<p> Query: {query_text} </p>
-			</form>
-			<h2> Data </h2>
-			<DisplayTableFromJSON json_data={json_from_database} />
+			</form> */}
+			{/* <h2> Data </h2>
+			<DisplayTableFromJSON json_data={json_from_database} /> */}
 
 		</div>
 	</div>

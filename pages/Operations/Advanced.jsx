@@ -45,10 +45,11 @@ export default function Advanced(data) {
 					{/* <input type="text" value={icaoCode} onChange={handleChange} /> */}
 				</label>
 
-				<div><textarea rows={5} cols={50} value={`SELECT * FROM flights WHERE flightid='UAL2610'`} onChange={handleChange} /> </div>
+				<div><textarea rows={5} cols={50} defaultValue={`SELECT * FROM flights WHERE flightid='UAL2610`} onChange={handleChange} /> </div>
 				<div>
 					<button type="submit">Run</button>
 				</div>
+				<p> Example: SELECT * FROM flights WHERE flightid='UAL2610' </p>
 
 				<p> Query: {query_text} </p>
 			</form>
