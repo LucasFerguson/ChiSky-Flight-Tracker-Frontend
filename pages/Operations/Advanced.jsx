@@ -52,7 +52,7 @@ export default function Advanced(data) {
 
 				<p> Query: {query_text} </p>
 			</form>
-			<h2> Data </h2>
+			<h2> Table Output </h2>
 			<DisplayTableFromJSON json_data={json_from_database} />
 
 		</div>
