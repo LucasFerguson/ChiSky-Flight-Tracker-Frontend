@@ -36,7 +36,7 @@ export default function Advanced(data) {
 
 	return <div>
 		<div>
-			<h2> Create Operation Page</h2>
+			<h2> Advanced Operation Page</h2>
 			<p>Selected Table: {data.table}</p>
 			<form onSubmit={handleSubmit}>
 				<label>
