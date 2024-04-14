@@ -9,6 +9,7 @@ export default function Header() {
   <div class={styles.headerlinks}>
     <a class="homestyle" href="/">Home</a>
     <a href="MM">Query</a>
+    <a href="Map">Map</a>
     <a href="About">About</a>
   </div>
 </div>
