@@ -3,7 +3,6 @@ import Header from './header';
 import Background from './Background';
 import Footer from './footer';
 import React from 'react';
-//import DeckGL from '@deck.gl/react';
-//import { ScatterplotLayer } from '@deck.gl/layers';
-//import { StaticMap } from 'react-map-gl';
+
+const MAPBOX_ACCESS_TOKEN = "";
 
