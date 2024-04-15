@@ -9,9 +9,9 @@ import { ScenegraphLayer } from '@deck.gl/mesh-layers';
 // import type { PickingInfo, MapViewState } from '@deck.gl/core';
 
 // Data provided by the OpenSky Network, http://www.opensky-network.org
-const DATA_URL = 'https://opensky-network.org/api/states/all';
+// const DATA_URL = 'https://opensky-network.org/api/states/all';
 // For local debugging
-// const DATA_URL = './all.json';
+const DATA_URL = './all.json';
 const MODEL_URL =
 	'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/scenegraph-layer/airplane.glb';
 const REFRESH_TIME_SECONDS = 60;
