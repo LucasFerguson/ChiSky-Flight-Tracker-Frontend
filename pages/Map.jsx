@@ -7,8 +7,9 @@ import DeckGL from '@deck.gl/react';
 import { StaticMap } from 'react-map-gl';
 import { ScatterplotLayer } from '@deck.gl/layers';
 
-import { env } from '../env';
+import MapApp from './Map2';
 
+import { env } from '../env';
 const MAPBOX_ACCESS_TOKEN = env.MAPBOX_API_KEY;
 
 // Set your initial map view state
@@ -29,24 +30,29 @@ const scatterplotLayer = new ScatterplotLayer({
     data: data,
     getPosition: d => d.position,
     getRadius: d => d.size,
-    getColor: [255, 0, 0], // Red color
+    getFillColor: [255, 0, 0], // Red color
+    getLineColor: [255, 0, 0], // Red color
     opacity: 0.8,
     pickable: true
 });
 
-const MapComponent = () => {
+const Map = () => {
     return (
-        <DeckGL
-            initialViewState={initialViewState}
-            controller={true}
-            layers={[scatterplotLayer]}
-        >
-            <StaticMap
-                mapStyle="mapbox://styles/mapbox/streets-v11"
-                mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
-            />
-        </DeckGL>
+        <div>
+            <p>Hi this is the map</p>
+            <MapApp></MapApp>
+            {/* <DeckGL
+                initialViewState={initialViewState}
+                controller={true}
+                layers={[scatterplotLayer]}
+            >
+                <StaticMap
+                    mapStyle="mapbox://styles/mapbox/streets-v11"
+                    mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
+                />
+            </DeckGL> */}
+        </div>
     );
 };
 
-export default MapComponent;
+export default Map;
