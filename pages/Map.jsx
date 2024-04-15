@@ -4,5 +4,7 @@ import Background from './Background';
 import Footer from './footer';
 import React from 'react';
 
-const MAPBOX_ACCESS_TOKEN = "";
+import { env } from '../env';
+
+const MAPBOX_ACCESS_TOKEN = env.MAPBOX_API_KEY;
 
