@@ -10,6 +10,7 @@
     "axios": "^1.6.8",
     "console-feed": "^3.6.0",
     "deck.gl": "^9.0.7",
+    "mapbox-gl": "^3.3.0",
     "next": "latest",
     "normalize.css": "^8.0.1",
     "react": "18.2.0",
