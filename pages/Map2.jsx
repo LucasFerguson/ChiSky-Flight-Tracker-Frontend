@@ -90,7 +90,7 @@ function getTooltip({ object }) {
 }
 
 export default function MapApp({
-	sizeScale = 25,
+	sizeScale = 2050,
 	onDataLoad,
 	mapStyle = MAP_STYLE
 }) {
