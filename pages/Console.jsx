@@ -22,3 +22,6 @@ class ConsoleApp extends React.Component {
     )
   }
 }
+
+
+export default ConsoleApp;

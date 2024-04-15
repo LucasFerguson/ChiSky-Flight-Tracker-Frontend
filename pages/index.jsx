@@ -14,7 +14,7 @@ export default function Home() {
   let aaaaa = new ConsoleApp();
 
   return (
-    
+
     <div className={styles.homepage}>
 
       <Header />
@@ -28,15 +28,21 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className={styles.title}>
+        {/* <h1 className={styles.title}>
           Welcome to CS425 woooo <a href="MM">Run a query</a>
-        </h1>
-        
-        <ConsoleApp />
+        </h1> */}
+
+        <p></p>
+        <div className={styles.myboxborder}>
+          <h3>Console</h3>
+          <ConsoleApp />
+        </div>
+        <p></p>
+        <p></p>
 
       </main>
 
-      
+
       {/* <style jsx>{`
         main {
           padding: 5rem 0;
