@@ -96,24 +96,75 @@ const DisplayTableFromJSON = ({ json_data }) => {
 // import styles from '../../styles/Home.module.css';
 // import React, { useState } from 'react';
 // export default function DeleteOperation(data) {
-
-//Roll Up
-
-//Cubed
-
-//First Value
-
-//Having Count
-
-// **Advanced Window Features
-
-//Ranking
-
-//Dense_rank()
-
-//Ntile()
-
-//Unbounded Preceding
-
-
 // }
+
+// --Roll UP-- (Works)
+// SELECT engine_type, SUM(engine_count)
+// FROM aircraft_types
+// GROUP BY engine_type;
+
+// --CUBED-- (Works)
+//SELECT engine_type, description, SUM(engine_count) 
+//FROM aircraft_types
+//GROUP BY CUBE(engine_type, description);
+
+
+// --VIEW-- (Works)
+// CREATE VIEW public."United States" AS
+// SELECT name, iata, icao
+// FROM airlines
+// WHERE country = 'United States';
+
+// --FIRST VALUE-- (Works)
+// SELECT flight_id, status, ident_iata, fa_flight_id, FIRST_VALUE(flight_id) OVER (ORDER BY ident_ata) AS first_value_flight_id
+// FROM flights;
+
+// --HAVING COUNT -- (Not Works)
+// SELECT description, engine_type, SUM(engine_count)
+// FROM aircraft_types
+// GROUP BY description, engine_type
+// HAVING COUNT(engine_count);
+
+// ADVANCED WINDOW FEATURES (CHAPTER 5)
+
+// --RECURSIVE QUERIES-- (Not Works)
+// WITH RECURSIVE ReachableAirports AS(
+// 	SELECT icao_code AS reachable_airport, 1 AS hops
+// 	FROM airport
+// 	WHERE icao_code = '07OK'
+
+// 	UNION ALL
+
+// 	SELECT name AS reachable_airport, ra.hops + 1 AS hops
+// 	FROM ReachableAirports ra
+// 	JOIN routes r ON ra.reachable_airport = r.coordinates
+// 	WHERE ra.hops < 10
+// )
+
+// SELECT reachable_airport, hops
+// FROM ReachableAirports;
+
+// --Ranking-- (Works)
+// SELECT * FROM (
+// SELECT *,
+// RANK() OVER (ORDER BY length ASC) AS l_rank
+// FROM routes) as table_routes;
+
+// --DENSE_RANK()-- (Works)
+// SELECT *,	
+// DENSE_RANK() OVER (ORDER BY  length ASC) as denRank
+// FROM routes;
+
+
+// --NTILE()-- (Works)
+// SELECT * FROM (
+// 	SELECT *,
+// 	RANK() OVER (ORDER BY length ASC) AS l_rank
+//  FROM routes) as table_routes;
+
+// --Unbounded Preceding-- (Works)
+// SELECT *,
+// SUM(engine_count) OVER (ORDER BY engine_type ROWS UNBOUNDED PRECEDING)
+// AS ‘unbounded_engine’
+// FROM aircraft_types;
+
