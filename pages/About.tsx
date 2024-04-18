@@ -1,17 +1,16 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Header from "./header";
 import Background from "./Background";
 
 const AboutMe = () => {
   const people = [
     {
       name: "Lucas Fergurson",
-      linkedIn: "",
-      github: "",
-      description: "",
-      avatar: "",
+      linkedIn: "https://www.linkedin.com//in/lucasferguson5275",
+      github: "https://github.com/LucasFerguson",
+      description: "Accelerated BS+MS in CS, Check out my site at lucasferguson.net",
+      avatar: "https://assets-global.website-files.com/5fbe05341afa6eb6d39332b2/5fbe06704a516b87fd1cb170_Logo.png",
     },
     {
       name: "Astrid Beasley",
@@ -38,8 +37,8 @@ const AboutMe = () => {
 
   return (
     <div className={styles.homepage}>
-      <Header />
       <Background />
+
       <div></div>
       <div className={styles["about-me-container"]}>
         <div className={styles["about-us"]}>

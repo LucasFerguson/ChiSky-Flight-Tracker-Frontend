@@ -4,8 +4,8 @@ import CreateOperation from './Operations/CreateOperation';
 import UpdateOperation from './Operations/UpdateOperation';
 import ReadOperation from './Operations/ReadOperation';
 import DeleteOperation from './Operations/DeleteOperation';
-import ConsoleApp from './ConsoleApp';
-import Header from './components/header';
+import ConsoleApp from './components/ConsoleApp';
+// import Header from './components/header';
 
 
 import styles from '../styles/Home.module.css';
@@ -45,7 +45,10 @@ const QueryPage = () => {
 
 
 	return <div className={styles.homepage}>
+
+		{/*
 		<Header />
+*/}
 
 		<div>
 			<aside>

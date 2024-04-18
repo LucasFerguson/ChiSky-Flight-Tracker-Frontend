@@ -5,8 +5,11 @@ import Layout from "./components/layout";
 export default function MyApp({ Component, pageProps }) {
 	return (
 		<Layout>
-			<div>This is a test</div>
-			<Component {...pageProps} />
+			{/* <div>This is a test</div> */}
+
+			<div style={{ border: "1px solid black" }}>
+				<Component {...pageProps} />
+			</div>
 		</Layout>
 	)
 }

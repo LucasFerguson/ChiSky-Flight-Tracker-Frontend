@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css';
 import Header from './components/header';
 import Footer from './components/footer';
 import QueryDisplay from './QueryDisplay';
-import ConsoleApp from "./ConsoleApp";
+import ConsoleApp from "./components/ConsoleApp";
 
 // this is the homepage of the website 
 

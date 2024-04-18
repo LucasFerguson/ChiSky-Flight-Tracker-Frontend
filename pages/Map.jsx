@@ -6,8 +6,9 @@ import { StaticMap } from 'react-map-gl';
 import { ScatterplotLayer } from '@deck.gl/layers';
 
 import MapApp from './Map2';
-
+// READ ME!!!!! IF this line causes an error, you need to create a .env file in the root directory of the project and read the README.md file for instructions on how to set up the .env file
 import { env } from '../env';
+// :D   - Lucas 
 const MAPBOX_ACCESS_TOKEN = env.MAPBOX_API_KEY;
 
 // Set your initial map view state

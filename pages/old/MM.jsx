@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import QueryDisplay from './QueryDisplay';
-import CreateOperation from './Operations/CreateOperation';
-import UpdateOperation from './Operations/UpdateOperation';
-import ReadOperation from './Operations/ReadOperation';
-import DeleteOperation from './Operations/DeleteOperation';
-import ConsoleApp from './ConsoleApp';
-import Header from './components/header';
+import QueryDisplay from '../QueryDisplay';
+import CreateOperation from '../Operations/CreateOperation';
+import UpdateOperation from '../Operations/UpdateOperation';
+import ReadOperation from '../Operations/ReadOperation';
+import DeleteOperation from '../Operations/DeleteOperation';
+import ConsoleApp from '../components/ConsoleApp';
+import Header from '../components/header';
 
 
 import styles from '../styles/Home.module.css';
-import Advanced from './Operations/Advanced';
+import Advanced from '../Operations/Advanced';
 
 const PageDetailingHomePage = () => {
 
