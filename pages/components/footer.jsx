@@ -19,10 +19,10 @@ export default function Footer() {
 
 const styles = {
   footer: {
-		backgroundColor: '#3273a8',
-		padding: '20px 0',
-		textAlign: 'center',
-		color: '#fff', 
+    backgroundColor: '#3273a8',
+    padding: '20px 0',
+    textAlign: 'center',
+    color: '#fff',
   },
   container: {
     maxWidth: '1200px',
@@ -35,7 +35,7 @@ const styles = {
     marginRight: '10px',
     fontSize: '14px',
     color: '#333',
-	fontFamily: 'Arial, sans-serif'
+    fontFamily: 'Arial, sans-serif'
   },
   logo: {
     width: '100px',

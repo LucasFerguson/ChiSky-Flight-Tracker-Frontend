@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import Header from './header';
-import Footer from './footer';
+import Header from './components/header';
+import Footer from './components/footer';
 import QueryDisplay from './QueryDisplay';
 import ConsoleApp from "./ConsoleApp";
 
-
+// this is the homepage of the website 
 
 export default function Home() {
 
@@ -17,8 +17,7 @@ export default function Home() {
 
     <div className={styles.homepage}>
 
-      <Header />
-
+      {/* <Header /> Header is no longer needed here because of pages/_app.tsx    */}
 
       <QueryDisplay />
 
@@ -110,7 +109,7 @@ export default function Home() {
         }
       `}</style> */}
 
-      <Footer />
+      {/* <Footer /> Footer is no longer needed here because of pages/_app.tsx */}
 
     </div>
   );

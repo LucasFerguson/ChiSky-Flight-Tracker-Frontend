@@ -1,7 +1,5 @@
 // Implementing a 3D maps in react to detect placement of planes in a specific area /
-import Header from './header';
 import Background from './Background';
-import Footer from './footer';
 import React, { useEffect, useRef } from 'react';
 import DeckGL from '@deck.gl/react';
 import { StaticMap } from 'react-map-gl';
