@@ -27,7 +27,9 @@ export default function Advanced(data) {
 				console.log('Data:', data);
 				setJSON(data);
 			} else {
-				throw new Error('Failed to fetch data');
+				const error = await response.json();
+
+				throw new Error('Failed to fetch data,' + JSON.stringify(error));
 			}
 		} catch (error) {
 			console.error('Error:', error.message);
