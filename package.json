@@ -19,5 +19,9 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.79",
+    "typescript": "5.4.5"
   }
 }
