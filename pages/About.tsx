@@ -30,7 +30,7 @@ const AboutMe = () => {
       name: "Melissa Laiz",
       linkedIn: "https://www.linkedin.com/in/mumayyy/",
       github: "https://github.com/muymay",
-      description: "2nd Year Computer Science, Co-founder of Website Name",
+      description: "2nd Year Computer Science",
       avatar: "http://localhost:3000/IMG_2479.jpg",
     },
   ];
