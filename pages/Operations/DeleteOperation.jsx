@@ -5,10 +5,10 @@ import styles from '../../styles/Home.module.css';
 import React, { useState } from 'react';
 export default function DeleteOperation(data) {
 
-	const [icaoCode, setIcaoCode] = useState('');
+	const [primary_key, setPrimaryKey] = useState('');
 
 	const handleChange = (e) => {
-		setIcaoCode(e.target.value);
+		setPrimaryKey(e.target.value);
 	};
 
 	const handleSubmit = async (e) => {
@@ -19,7 +19,7 @@ export default function DeleteOperation(data) {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify({ icaoCode }),
+				body: JSON.stringify({ primary_key: primary_key }),
 			});
 			if (response.ok) {
 				console.log('Data deleted successfully');
@@ -32,21 +32,21 @@ export default function DeleteOperation(data) {
 	};
 
 
-	return <div> 
-	<div>
-	 	<h2> Delete Operation Page</h2>
-		<p>Selected Table: {data.table}</p> 	
-		<form onSubmit={handleSubmit}>
-			<label>
-				Enter Primary Key of row to delete:
-				<input type="text" value={icaoCode} onChange={handleChange} />
-			</label>
-			<button type="submit">Delete</button>
-		</form>
+	return <div>
+		<div>
+			<h2> Delete Operation Page</h2>
+			<p>Selected Table: {data.table}</p>
+			<form onSubmit={handleSubmit}>
+				<label>
+					Enter Primary Key of row to delete:
+					<input type="text" value={primary_key} onChange={handleChange} />
+				</label>
+				<button type="submit">Delete</button>
+			</form>
 
 		</div>
 	</div>
-	
+
 }
 
 

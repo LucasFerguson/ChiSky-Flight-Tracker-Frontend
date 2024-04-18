@@ -61,6 +61,11 @@ const PageDetailingHomePage = () => {
             <option value="flights">Flights</option>
           </select>
         </div>
+        <br></br>
+        <div>
+          {/* <button>Run</button> (Dose nothing currently) */}
+        </div>
+        <br></br>
       </aside>
       <main>
         <div>
@@ -71,6 +76,13 @@ const PageDetailingHomePage = () => {
           <button style={buttonStyle} value="Delete" onClick={handleOperation}>Delete</button>
           <button style={buttonStyle} value="Advanced" onClick={handleOperation}>Advanced</button>
         </div>
+        <br></br>
+        <div>
+          <label style={TextStyles}>User Input: </label>
+          {/* <input type="text" value={textInput} onChange={handleTextInputChange} />
+          (Dose nothing currently) */}
+        </div>
+
         <div className={styles.myboxborder}>
           {selectedOperation == "Create" && <CreateOperation table={selectedOption} />}
           {selectedOperation == "Read" && <ReadOperation table={selectedOption} />}

@@ -95,7 +95,7 @@ export default function UpdateOperation(data) {
 	return (
 		<div>
 			<p>Selected Table: {data.table}</p>
-			<h2>Create Operation</h2>
+			<h2>Update Operation</h2>
 			<p>Enter Data</p>
 			<form onSubmit={handleSubmit}>
 
