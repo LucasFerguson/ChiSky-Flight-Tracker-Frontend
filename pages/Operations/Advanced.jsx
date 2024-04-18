@@ -95,7 +95,23 @@ const DisplayTableFromJSON = ({ json_data }) => {
 // import React, { useState } from 'react';
 // export default function DeleteOperation(data) {
 
+//Roll Up
 
+//Cubed
+
+//First Value
+
+//Having Count
+
+// **Advanced Window Features
+
+//Ranking
+
+//Dense_rank()
+
+//Ntile()
+
+//Unbounded Preceding
 
 
 // }
