@@ -21,10 +21,10 @@ const AboutMe = () => {
     },
     {
       name: "Joseph Pancho",
-      linkedIn: "",
-      github: "",
-      description: "",
-      avatar: "",
+      linkedIn: "https://www.linkedin.com/in/josephpancho101/",
+      github: "https://github.com/janchpanch",
+      description: "4th Year CS Undergraduate @ IIT",
+      avatar: "http://localhost:3000/1667680521948-1.jpg",
     },
     {
       name: "Melissa Laiz",
