@@ -43,7 +43,7 @@ const AboutMe = () => {
       <div className={styles["about-me-container"]}>
         <div className={styles["about-us"]}>
           <h2>About Us</h2>
-          <p>This is a brief description of our team or organization.</p>
+          <p>The <b>ChiSky Flight Tracker</b> is a digital aviation company and we aim to provide accurate flight tracking and data platform </p>
         </div>
         <div className={styles["people-list"]}>
           {people.map((person, index) => (
