@@ -1,6 +1,6 @@
 
 import AirportForm from "../AirportForm"
-
+import styles from '../../styles/Home.module.css';
 import React, { useState, useEffect } from 'react';
 
 
@@ -75,7 +75,7 @@ export default function UpdateOperation(data) {
 
 	if (loading) {
 		return (
-			<div>
+			<div className={styles.querybox}>
 				<p>Selected Table: {data.table}</p>
 				<p>Error: Please Select Table!</p>
 				<p>Loading...</p>
@@ -85,7 +85,7 @@ export default function UpdateOperation(data) {
 
 	if (error) {
 		return (
-			<div>
+			<div className={styles.querybox}>
 				<p>Selected Table: {data.table}</p>
 				<p>Error: {error.message}</p>
 			</div>
@@ -93,7 +93,7 @@ export default function UpdateOperation(data) {
 	}
 
 	return (
-		<div>
+		<div className={styles.querybox}>
 			<p>Selected Table: {data.table}</p>
 			<h2>Update Operation</h2>
 			<p>Enter Data</p>

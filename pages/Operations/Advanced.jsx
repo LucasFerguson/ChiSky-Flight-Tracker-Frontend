@@ -1,5 +1,6 @@
 // Advanced
 import React, { useState } from 'react';
+import styles from '../../styles/Home.module.css';
 
 export default function Advanced(data) {
 
@@ -34,7 +35,7 @@ export default function Advanced(data) {
 		}
 	};
 
-	return <div>
+	return <div className={styles.querybox}>
 		<div>
 			<h2> Advanced Operation Page</h2>
 			<p>Selected Table: {data.table}</p>

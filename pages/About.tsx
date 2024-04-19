@@ -14,10 +14,10 @@ const AboutMe = () => {
     },
     {
       name: "Astrid Beasley",
-      linkedIn: "",
-      github: "",
-      description: "",
-      avatar: "",
+      linkedIn: "https://www.linkedin.com/in/nathan-beasley-2b579a257/",
+      github: "https://github.com/Astr-Beas",
+      description: "Applied Math and CS major, Accelerated MS in AI",
+      avatar: "http://localhost:3000/sddefault.jpg",
     },
     {
       name: "Joseph Pancho",

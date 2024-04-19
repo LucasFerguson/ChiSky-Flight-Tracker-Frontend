@@ -1,13 +1,13 @@
 
 
-@import-normalize;
-
 .body{
   margin: 0;
 }
 
 /* // by lucas: :D */
 .myboxborder {
+  margin-top: 10px;
+  margin-bottom: 10px;
   border: 2px solid #000000;
   border-radius: 10px;
 }
@@ -61,6 +61,92 @@
 
 .logo{
   margin: 0px 30px 50px;
+}
+
+.intro{
+  margin: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:aliceblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.intro h1{
+  color: black;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.info{
+  margin: 25px;
+  margin-left: 15%;
+  margin-right: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3273a8;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 25px;
+  height: 200px;
+}
+
+
+.querypg{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: 90%;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 25px;
+}
+
+.querypg label{
+  font-weight: bold;
+}
+
+.querypg button{
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #4e86b4;
+  padding: 10px;
+  width: 100px;
+  border-radius: 25px;
+}
+
+.querypg button:hover {
+  background-color: aliceblue;
+  color: #3273a8;
+}
+
+.querypg button.active {
+  background-color: aliceblue;
+  color: #3273a8;
+}
+
+.querybox{
+  padding: 20px;
+  line-height: 25px;
+  font-weight: bold;
+}
+
+.querybox h2{
+  font-size: 30px;
+  line-height: 60px;
+}
+
+.querybox button{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.querybox p{
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 /* FOR ABOUT ME */

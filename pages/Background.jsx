@@ -5,7 +5,7 @@ const Background = () => {
     <div
       style={{
         backgroundImage: 'url(http://localhost:3000/background-img.webp)',
-        backgroundColor: 'rgba(255, 255, 255, 0.75)', // Example: White background with 50% opacity
+        backgroundColor: 'rgba(240, 248, 255, 0.75)', // Example: White background with 50% opacity
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         width: '100vw',

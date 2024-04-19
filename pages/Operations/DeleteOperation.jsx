@@ -32,7 +32,7 @@ export default function DeleteOperation(data) {
 	};
 
 
-	return <div>
+	return <div className={styles.querybox}>
 		<div>
 			<h2> Delete Operation Page</h2>
 			<p>Selected Table: {data.table}</p>

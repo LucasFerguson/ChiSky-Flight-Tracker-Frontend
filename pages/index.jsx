@@ -5,6 +5,7 @@ import Footer from './components/footer';
 import QueryDisplay from './QueryDisplay';
 import ConsoleApp from "./components/ConsoleApp";
 
+
 // this is the homepage of the website 
 
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
 
       {/* <Header /> Header is no longer needed here because of pages/_app.tsx    */}
 
-      <QueryDisplay />
+      
 
       <Head>
         <title>Create Next App</title>
@@ -27,18 +28,18 @@ export default function Home() {
       </Head>
 
       <main>
-        {/* <h1 className={styles.title}>
-          Welcome to CS425 woooo <a href="MM">Run a query</a>
-        </h1> */}
-
-        <p></p>
-        <div className={styles.myboxborder}>
-          <h3>Console</h3>
-          <ConsoleApp />
+        <div className={styles.intro}>
+        <h1>
+          ChiSky Flight Tracker
+        </h1> 
         </div>
-        <p></p>
-        <p></p>
 
+        <div className={styles.info}>
+        <p>
+          *insert description* 
+        </p> 
+        </div>
+               
       </main>
 
 

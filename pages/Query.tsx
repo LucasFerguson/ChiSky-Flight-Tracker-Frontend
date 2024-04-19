@@ -50,10 +50,10 @@ const QueryPage = () => {
 		<Header />
 */}
 
-		<div>
+		<div className={styles.querypg}>
 			<aside>
 				<div>
-					<label style={TextStyles}>Select a query to run: </label>
+					<label>Select a query to run: </label>
 					<select value={selectedOption} onChange={handleOptionChange}>
 						<option value="">Select Table</option>
 						<option value="aircraft_types">Aircraft Types</option>
@@ -72,16 +72,16 @@ const QueryPage = () => {
 			</aside>
 			<main>
 				<div>
-					<label style={TextStyles}>Operations: </label>
-					<button style={buttonStyle} value="Create" onClick={handleOperation} >Create</button>
-					<button style={buttonStyle} value="Read" onClick={handleOperation}>Read</button>
-					<button style={buttonStyle} value="Update" onClick={handleOperation}>Update</button>
-					<button style={buttonStyle} value="Delete" onClick={handleOperation}>Delete</button>
-					<button style={buttonStyle} value="Advanced" onClick={handleOperation}>Advanced</button>
+					<label>Operations: </label>
+					<button value="Create" onClick={handleOperation} >Create</button>
+					<button value="Read" onClick={handleOperation}>Read</button>
+					<button value="Update" onClick={handleOperation}>Update</button>
+					<button value="Delete" onClick={handleOperation}>Delete</button>
+					<button value="Advanced" onClick={handleOperation}>Advanced</button>
 				</div>
 				<br></br>
 				<div>
-					<label style={TextStyles}>User Input: </label>
+					<label>User Input: </label>
 					{/* <input type="text" value={textInput} onChange={handleTextInputChange} />
           (Dose nothing currently) */}
 				</div>

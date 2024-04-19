@@ -1,5 +1,6 @@
 // CreateOperation
 import React, { useState, useEffect } from 'react';
+import styles from '../../styles/Home.module.css';
 
 export default function CreateOperation(data) {
 	const [json_from_database, setJSON] = useState([]);
@@ -71,7 +72,7 @@ export default function CreateOperation(data) {
 
 	if (loading) {
 		return (
-			<div>
+			<div className={styles.querybox}>
 				<p>Selected Table: {data.table}</p>
 				<p>Error: Please Select Table!</p>
 				<p>Loading...</p>
@@ -81,7 +82,7 @@ export default function CreateOperation(data) {
 
 	if (error) {
 		return (
-			<div>
+			<div className={styles.querybox}>
 				<p>Selected Table: {data.table}</p>
 				<p>Error: {error.message}</p>
 			</div>
@@ -89,7 +90,7 @@ export default function CreateOperation(data) {
 	}
 
 	return (
-		<div>
+		<div className={styles.querybox}>
 			<p>Selected Table: {data.table}</p>
 			<h2>Create Operation</h2>
 			<p>Enter Data</p>
@@ -117,7 +118,7 @@ export default function CreateOperation(data) {
 
 const DebugInfo = (data) => {
 	return (
-		<div>
+		<div className={styles.querybox}>
 			[DEBUG Info] React Component: {data.component_name}
 		</div>
 

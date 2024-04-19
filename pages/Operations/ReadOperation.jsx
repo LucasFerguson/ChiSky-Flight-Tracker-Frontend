@@ -1,6 +1,6 @@
 // ReadOperation
 import { useState, useEffect } from 'react';
-// import styles from '../../styles/Home.module.css';
+import styles from '../../styles/Home.module.css';
 
 
 export default function ReadOperation(data) {
@@ -39,7 +39,7 @@ export default function ReadOperation(data) {
 	}, [data.table]);
 
 	if (loading) {
-		return <div>
+		return <div className={styles.querybox}>
 			<DebugInfo component_name="QueryDisplay" />
 			<p>Selected Table: {data.table}</p>
 			<p>Loading...</p>;
@@ -47,7 +47,7 @@ export default function ReadOperation(data) {
 	}
 
 	if (error) {
-		return <div>
+		return <div className={styles.querybox}>
 			<DebugInfo component_name="QueryDisplay" />
 			<p>Selected Table: {data.table}</p>
 			<p>Error: {error.message}</p>;
@@ -55,7 +55,7 @@ export default function ReadOperation(data) {
 	}
 
 	return (
-		<div>
+		<div className={styles.querybox}>
 
 			<DebugInfo component_name="QueryDisplay" />
 			<p>Selected Table: {data.table}</p>
