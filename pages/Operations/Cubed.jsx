@@ -1,3 +1,4 @@
+// NOT TESTED
 import React, { useState } from 'react';
 import styles from '../../styles/Home.module.css';
 import Advanced from '../Advanced';
@@ -9,11 +10,9 @@ const CubeComponent = ({ data }) => {
       setPrimaryKey(e.target.value);
     };
   
-    // Handle form submission
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        // Make POST request to execute Cube
         const response = await fetch(`http://localhost:3011/cube/${data.table}`, {
           method: 'POST',
           headers: {
@@ -22,16 +21,16 @@ const CubeComponent = ({ data }) => {
           body: JSON.stringify({ primary_key: primaryKey }),
         });
         if (response.ok) {
-          console.log('Cube successfully'); // Log success message
+          console.log('Cube successfully'); 
         } else {
-          throw new Error('Failed to cube'); // Throw error if request fails
+          throw new Error('Failed to cube'); 
         }
       } catch (error) {
-        console.error('Error cube data:', error.message); // Log error message
+        console.error('Error cube data:', error.message); 
       }
     };
   
-    // Render component
+
     return (
       <div className={styles.querybox}>
         <div>
@@ -49,4 +48,4 @@ const CubeComponent = ({ data }) => {
     );
   };
   
-  export default CubeComponent; // Export component
+  export default CubeComponent; 
