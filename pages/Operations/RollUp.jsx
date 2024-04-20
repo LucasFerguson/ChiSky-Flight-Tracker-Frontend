@@ -1,7 +1,7 @@
 //Implementation of RollUp
-// import React, { useState } from 'react';
-// import styles from '../../styles/Home.module.css';
-// import Advanced from '../Advanced';
+import React, { useState } from 'react';
+import styles from '../../styles/Home.module.css';
+import Advanced from '../Advanced';
 
 // export default{
 //     input: ''
