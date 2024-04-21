@@ -7,8 +7,6 @@ import DeleteOperation from './Operations/DeleteOperation';
 
 import RollupComponent from './Operations/Rollup';
 
-
-
 import ConsoleApp from './components/ConsoleApp';
 // import Header from './components/header';
 
@@ -57,7 +55,7 @@ const QueryPage = () => {
 			<aside>
 				<div>
 					<label>Select a query to run: </label>
-					<select value={selectedOption} onChange={handleOptionChange}>
+					<select className={styles.tableDrop} value={selectedOption} onChange={handleOptionChange}>
 						<option value="">Select Table</option>
 						<option value="aircraft_types">Aircraft Types</option>
 						<option value="airports">Airports</option>
