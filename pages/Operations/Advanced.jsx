@@ -1,6 +1,7 @@
 // Advanced
 import React, { useState } from 'react';
 import styles from '../../styles/Home.module.css';
+import DisplayTableFromJSON from '../components/TableDisplay';
 
 export default function Advanced(data) {
 
@@ -64,31 +65,6 @@ export default function Advanced(data) {
 }
 
 
-const DisplayTableFromJSON = ({ json_data }) => {
-	return (
-		<table>
-			<thead>
-				<tr>
-					{json_data.fields.map(field => (
-						<th key={field.name}>{field.name}</th>
-					))}
-				</tr>
-			</thead>
-			<tbody>
-				{json_data.rows.map((row, index) => (
-					<tr key={index}>
-						{json_data.fields.map(field => (
-							<td key={`${index}-${field.name}`}>{row[field.name]}</td>
-						))}
-					</tr>
-				))}
-			</tbody>
-		</table>
-	);
-};
-
-
-
 
 
 // // DeleteOperation
@@ -105,7 +81,7 @@ const DisplayTableFromJSON = ({ json_data }) => {
 // GROUP BY engine_type;
 
 // --CUBED-- (Works)
-//SELECT engine_type, description, SUM(engine_count) 
+//SELECT engine_type, description, SUM(engine_count)
 //FROM aircraft_types
 //GROUP BY CUBE(engine_type, description);
 
@@ -152,7 +128,7 @@ const DisplayTableFromJSON = ({ json_data }) => {
 // FROM routes) as table_routes;
 
 // --DENSE_RANK()-- (Works)
-// SELECT *,	
+// SELECT *,
 // DENSE_RANK() OVER (ORDER BY  length ASC) as denRank
 // FROM routes;
 

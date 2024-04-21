@@ -1,6 +1,7 @@
 // ReadOperation
 import { useState, useEffect } from 'react';
 import styles from '../../styles/Home.module.css';
+import DisplayTableFromJSON from '../components/TableDisplay';
 
 
 export default function ReadOperation(data) {
@@ -131,29 +132,5 @@ const DebugInfo = (data) => {
 			[DEBUG Info] React Component: {data.component_name}
 		</div>
 
-	);
-};
-
-
-const DisplayTableFromJSON = ({ json_data }) => {
-	return (
-		<table>
-			<thead>
-				<tr>
-					{json_data.fields.map(field => (
-						<th key={field.name}>{field.name}</th>
-					))}
-				</tr>
-			</thead>
-			<tbody>
-				{json_data.rows.map((row, index) => (
-					<tr key={index}>
-						{json_data.fields.map(field => (
-							<td key={`${index}-${field.name}`}>{row[field.name]}</td>
-						))}
-					</tr>
-				))}
-			</tbody>
-		</table>
 	);
 };

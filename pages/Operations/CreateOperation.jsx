@@ -124,27 +124,3 @@ const DebugInfo = (data) => {
 
 	);
 };
-
-
-const DisplayTableFromJSON = ({ json_data }) => {
-	return (
-		<table>
-			<thead>
-				<tr>
-					{json_data.fields.map(field => (
-						<th key={field.name}>{field.name}</th>
-					))}
-				</tr>
-			</thead>
-			<tbody>
-				{json_data.rows.map((row, index) => (
-					<tr key={index}>
-						{json_data.fields.map(field => (
-							<td key={`${index}-${field.name}`}>{row[field.name]}</td>
-						))}
-					</tr>
-				))}
-			</tbody>
-		</table>
-	);
-};
