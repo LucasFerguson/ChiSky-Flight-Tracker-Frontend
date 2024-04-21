@@ -92,6 +92,13 @@
 }
 
 
+.tableDrop {
+  padding: 10px;
+  border-radius: 25px;
+}
+
+
+
 .querypg{
   margin-top: 50px;
   margin-bottom: 50px;
@@ -117,6 +124,7 @@
   width: 100px;
   border-radius: 25px;
 }
+
 
 .querypg button:hover {
   background-color: aliceblue;

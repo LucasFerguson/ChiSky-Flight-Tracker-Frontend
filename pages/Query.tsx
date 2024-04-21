@@ -4,6 +4,11 @@ import CreateOperation from './Operations/CreateOperation';
 import UpdateOperation from './Operations/UpdateOperation';
 import ReadOperation from './Operations/ReadOperation';
 import DeleteOperation from './Operations/DeleteOperation';
+
+import RollupComponent from './Operations/Rollup';
+
+
+
 import ConsoleApp from './components/ConsoleApp';
 // import Header from './components/header';
 
@@ -46,9 +51,7 @@ const QueryPage = () => {
 
 	return <div className={styles.homepage}>
 
-		{/*
-		<Header />
-*/}
+		{/*	<Header /> */}
 
 		<div className={styles.querypg}>
 			<aside>
@@ -78,6 +81,7 @@ const QueryPage = () => {
 					<button value="Update" onClick={handleOperation}>Update</button>
 					<button value="Delete" onClick={handleOperation}>Delete</button>
 					<button value="Advanced" onClick={handleOperation}>Advanced</button>
+					<button value="Rollup" onClick={handleOperation}>Rollup</button>
 				</div>
 				<br></br>
 				<div>
@@ -92,6 +96,7 @@ const QueryPage = () => {
 					{selectedOperation == "Update" && <UpdateOperation table={selectedOption} />}
 					{selectedOperation == "Delete" && <DeleteOperation table={selectedOption} />}
 					{selectedOperation == "Advanced" && <Advanced table={selectedOption} />}
+					{selectedOperation == "Rollup" && <RollupComponent table={selectedOption} />}
 				</div>
 
 				{/* <QueryDisplay></QueryDisplay> */}
