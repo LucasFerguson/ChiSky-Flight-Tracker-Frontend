@@ -98,6 +98,7 @@ const QueryPage = () => {
 					{selectedOperation == "Advanced" && <Advanced table={selectedOption} />}
 					{selectedOperation == "Rollup" && <RollupComponent table={selectedOption} />}
 					{selectedOperation == "CubeComponent" && <CubeComponent table={selectedOption} />}
+					{selectedOperation == "RankComponent" && <RankComponent table={selectedOption} />}
 				</div>
 
 				{/* <QueryDisplay></QueryDisplay> */}

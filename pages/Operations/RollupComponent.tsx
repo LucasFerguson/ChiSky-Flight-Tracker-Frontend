@@ -1,7 +1,7 @@
 // NOT TESTED
 //Implementation of RollUp
 import React, { useState } from 'react';
-import styles from '../../styles/Home.module.css';
+import styles from './../styles/Home.module.css';
 import DatabaceFetchWrapper from '../components/DatabaceFetchWrapper';
 import DisplayTableFromJSON from '../components/TableDisplay';
 
