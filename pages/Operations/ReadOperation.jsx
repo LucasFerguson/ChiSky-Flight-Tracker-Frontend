@@ -11,6 +11,7 @@ export default function ReadOperation(data) {
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
+		setLoading(true);
 		const fetchData = async (tableName) => {
 
 			if (tableName == "") {
@@ -43,7 +44,7 @@ export default function ReadOperation(data) {
 		return <div className={styles.querybox}>
 			<DebugInfo component_name="QueryDisplay" />
 			<p>Selected Table: {data.table}</p>
-			<p>Loading...</p>;
+			<p>Loading...</p>
 			<img src="https://media1.giphy.com/media/uIJBFZoOaifHf52MER/200w.gif?cid=6c09b9529ry67rkxriku5ai6omcaegqxtchadtx84q511l9p&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="" />
 		</div>
 	}

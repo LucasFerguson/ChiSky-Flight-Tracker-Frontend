@@ -17,6 +17,7 @@ export default function CreateOperation(data) {
 	}
 
 	useEffect(() => {
+		setLoading(true);
 		const fetchData = async (tableName) => {
 			if (tableName === "") {
 				console.log("Please Select Table!")
@@ -76,6 +77,7 @@ export default function CreateOperation(data) {
 				<p>Selected Table: {data.table}</p>
 				<p>Error: Please Select Table!</p>
 				<p>Loading...</p>
+				<img src="https://media1.giphy.com/media/uIJBFZoOaifHf52MER/200w.gif?cid=6c09b9529ry67rkxriku5ai6omcaegqxtchadtx84q511l9p&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="" />
 			</div>
 		);
 	}
