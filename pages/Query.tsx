@@ -5,7 +5,8 @@ import UpdateOperation from './Operations/UpdateOperation';
 import ReadOperation from './Operations/ReadOperation';
 import DeleteOperation from './Operations/DeleteOperation';
 
-import RollupComponent from './Operations/Rollup';
+import RollupComponent from './Operations/RollupComponent';
+import CubeComponent from './Operations/CubeComponent';
 
 import ConsoleApp from './components/ConsoleApp';
 // import Header from './components/header';
@@ -80,6 +81,7 @@ const QueryPage = () => {
 					<button value="Delete" onClick={handleOperation}>Delete</button>
 					<button value="Advanced" onClick={handleOperation}>Advanced</button>
 					<button value="Rollup" onClick={handleOperation}>Rollup</button>
+					<button value="CubeComponent" onClick={handleOperation}>Cube</button>
 				</div>
 				<br></br>
 				<div>
@@ -95,6 +97,7 @@ const QueryPage = () => {
 					{selectedOperation == "Delete" && <DeleteOperation table={selectedOption} />}
 					{selectedOperation == "Advanced" && <Advanced table={selectedOption} />}
 					{selectedOperation == "Rollup" && <RollupComponent table={selectedOption} />}
+					{selectedOperation == "CubeComponent" && <CubeComponent table={selectedOption} />}
 				</div>
 
 				{/* <QueryDisplay></QueryDisplay> */}
