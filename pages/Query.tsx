@@ -4,9 +4,10 @@ import CreateOperation from './Operations/CreateOperation';
 import UpdateOperation from './Operations/UpdateOperation';
 import ReadOperation from './Operations/ReadOperation';
 import DeleteOperation from './Operations/DeleteOperation';
-
+import RankComponent from './Operations/RankComponent';
 import RollupComponent from './Operations/RollupComponent';
 import CubeComponent from './Operations/CubeComponent';
+import DenseRankComponent from './Operations/DenseRankComponent';
 
 import ConsoleApp from './components/ConsoleApp';
 // import Header from './components/header';
@@ -82,6 +83,8 @@ const QueryPage = () => {
 					<button value="Advanced" onClick={handleOperation}>Advanced</button>
 					<button value="Rollup" onClick={handleOperation}>Rollup</button>
 					<button value="CubeComponent" onClick={handleOperation}>Cube</button>
+					<button value="RankComponent" onClick={handleOperation}>Rank</button>
+					<button value="DenseRankComponent" onClick={handleOperation}>Dense Rank</button>
 				</div>
 				<br></br>
 				<div>
@@ -99,6 +102,7 @@ const QueryPage = () => {
 					{selectedOperation == "Rollup" && <RollupComponent table={selectedOption} />}
 					{selectedOperation == "CubeComponent" && <CubeComponent table={selectedOption} />}
 					{selectedOperation == "RankComponent" && <RankComponent table={selectedOption} />}
+					{selectedOperation == "DenseRankComponent" && <DenseRankComponent table={selectedOption} />}
 				</div>
 
 				{/* <QueryDisplay></QueryDisplay> */}

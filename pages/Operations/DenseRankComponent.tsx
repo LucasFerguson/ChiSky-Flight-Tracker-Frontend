@@ -4,8 +4,8 @@ import styles from '../../styles/Home.module.css';
 import DatabaceFetchWrapper from '../components/DatabaceFetchWrapper';
 import DisplayTableFromJSON from '../components/TableDisplay';
 
-export default function RankComponent(data) {
-    const[query_text, setQueryText] = useState(`SELECT * FROM (SELECT *, RANK() OVER (ORDER BY length ASC) AS l_ran FROM routes) as table_routes;`)
+export default function DenseRankComponent(data) {
+    const[query_text, setQueryText] = useState(`SELECT *,	DENSE_RANK() OVER (ORDER BY  length asc) as denRank FROM routes;`)
     const[json_from_database, setJSON] = useState({ fields: [], rows: [] });
 
     const handleChange = (e) => {
@@ -25,7 +25,7 @@ export default function RankComponent(data) {
     return (
       <div className={styles.querybox}>
 			<div>
-				<h2>Rank Operation Page</h2>
+				<h2>Dense Rank Operation Page</h2>
 				<p>Selected Table: {data ? data.table : ""}</p>
 
 				<p> Query: {query_text} </p>
