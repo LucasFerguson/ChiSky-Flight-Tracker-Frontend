@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import styles from '../../styles/Home.module.css';
 
-import DatabaceFetchWrapper from '../components/DatabaceFetchWrapper';
+import DatabaceFetchWrapper from '../components/DatabaseFetchWrapper';
 import DisplayTableFromJSON from '../components/TableDisplay';
 
 // --CUBED-- (Works)
@@ -36,7 +36,7 @@ export default function CubeComponent(data) {
 		<div className={styles.querybox}>
 			<div>
 				<h2>Cube Operation Page</h2>
-				<p>Selected Table: {data ? data.table : ""}</p>
+				{/* <p>Selected Table: [ {data ? data.table : ""} ]</p> */}
 
 				<p> Query: {query_text} </p>
 

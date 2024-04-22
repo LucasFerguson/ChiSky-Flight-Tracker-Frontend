@@ -1,7 +1,7 @@
 //Not Tested
 import React, { useState } from 'react';
 import styles from '../../styles/Home.module.css';
-import DatabaceFetchWrapper from '../components/DatabaceFetchWrapper';
+import DatabaseFetchWrapper from '../components/DatabaseFetchWrapper';
 import DisplayTableFromJSON from '../components/TableDisplay';
 
 export default function RankComponent(data) {
@@ -15,7 +15,7 @@ export default function RankComponent(data) {
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-      let db = new DatabaceFetchWrapper();
+      let db = new DatabaseFetchWrapper();
       db.fetchData(query_text).then((data)=> {
         setJSON(data);
       })
@@ -26,7 +26,7 @@ export default function RankComponent(data) {
       <div className={styles.querybox}>
 			<div>
 				<h2>Rank Operation Page</h2>
-				<p>Selected Table: {data ? data.table : ""}</p>
+				{/* <p>Selected Table: [ {data ? data.table : ""} ]</p> */}
 
 				<p> Query: {query_text} </p>
 
