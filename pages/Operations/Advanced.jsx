@@ -41,7 +41,8 @@ export default function Advanced(data) {
 	return <div className={styles.querybox}>
 		<div>
 			<h2> Advanced Operation Page</h2>
-			<p>Selected Table: {data.table}</p>
+			<p>Database Table Names: flights | flight_status | airports | airlines | aircraft_types | routes</p>
+			<p>Selected Table: [ {data.table} ]</p>
 			<form onSubmit={handleSubmit}>
 				<label>
 					Enter SQL Query:

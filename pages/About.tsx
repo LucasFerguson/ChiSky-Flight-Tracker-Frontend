@@ -36,14 +36,18 @@ const AboutMe = () => {
   ];
 
   return (
-    <div className={styles.homepage}>
+    <div className={styles.about}>
       <Background />
 
       <div></div>
       <div className={styles["about-me-container"]}>
         <div className={styles["about-us"]}>
-          <h2>About Us</h2>
-          <p>The <b>ChiSky Flight Tracker</b> is a digital aviation company and we aim to provide accurate flight tracking and data platform </p>
+          <br></br>
+          <p><b>About Us</b></p>
+          <br></br>
+          <p>The <b>ChiSky Flight Tracker</b> is a digital aviation company and we aim to provide accurate flight tracking and data platform.</p>
+          <br></br>
+          <p>This webpage was created as the project for CS 425 @ IIT.</p>
         </div>
         <div className={styles["people-list"]}>
           {people.map((person, index) => (

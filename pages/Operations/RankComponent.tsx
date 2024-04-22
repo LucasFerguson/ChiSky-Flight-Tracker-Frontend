@@ -26,7 +26,7 @@ export default function RankComponent(data) {
       <div className={styles.querybox}>
 			<div>
 				<h2>Rank Operation Page</h2>
-				<p>Selected Table: {data ? data.table : ""}</p>
+				{/* <p>Selected Table: [ {data ? data.table : ""} ]</p> */}
 
 				<p> Query: {query_text} </p>
 

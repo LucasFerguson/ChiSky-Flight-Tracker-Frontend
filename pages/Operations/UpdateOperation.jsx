@@ -96,7 +96,7 @@ export default function UpdateOperation(data) {
 
 	return (
 		<div className={styles.querybox}>
-			<p>Selected Table: {data.table}</p>
+			<p>Selected Table: [ {data.table} ]</p>
 			<h2>Update Operation</h2>
 			<p>Enter Data</p>
 			<form onSubmit={handleSubmit}>

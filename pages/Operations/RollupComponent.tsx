@@ -41,7 +41,7 @@ export default function RollupComponent(data) {
 		<div className={styles.querybox}>
 			<div>
 				<h2>Rollup Operation Page</h2>
-				<p>Selected Table: {data ? data.table : ""}</p>
+				{/* <p>Selected Table: [ {data ? data.table : ""} ]</p> */}
 
 				<p> Query: {query_text} </p>
 

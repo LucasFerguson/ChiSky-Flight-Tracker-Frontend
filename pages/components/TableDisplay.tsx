@@ -3,7 +3,7 @@ import styles from '../../styles/Home.module.css';
 
 const DisplayTableFromJSON = ({ json_data }) => {
 	const [currentPage, setCurrentPage] = useState(1);
-	const [entriesPerPage, setEntriesPerPage] = useState(100);
+	const [entriesPerPage, setEntriesPerPage] = useState(10);
 
 	if (!json_data) return (<div>Error: No data received. Backend may not be running</div>)
 
@@ -29,7 +29,7 @@ const DisplayTableFromJSON = ({ json_data }) => {
 	return (
 		<div style={{ overflowX: 'auto' }}>
 
-			<div>
+			<div  className={styles.querybox}>
 				<span>Page Settings: </span>
 				<button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
 				<button onClick={nextPage} disabled={indexOfLastRow >= totalRows}>Next</button>

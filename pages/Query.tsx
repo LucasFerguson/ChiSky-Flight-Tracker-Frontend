@@ -74,18 +74,21 @@ const QueryPage = () => {
 				</div>
 				<br></br>
 				<div>
-					{/* <button>Run</button> (Dose nothing currently) */}
+					{/* <button>Run</button> (Does nothing currently) */}
 				</div>
 				<br></br>
 			</aside>
 			<main>
 				<div>
 					<label>Operations: </label>
-					<button value="Create" onClick={handleOperation} >Create</button>
-					<button value="Read" onClick={handleOperation}>Read</button>
-					<button value="Update" onClick={handleOperation}>Update</button>
-					<button value="Delete" onClick={handleOperation}>Delete</button>
-					<button value="Advanced" onClick={handleOperation}>Advanced</button>
+					<button value="Create" onClick={handleOperation} >Create Row</button>
+					<button value="Read" onClick={handleOperation}>Read Table</button>
+					<button value="Update" onClick={handleOperation}>Update Table</button>
+					<button value="Delete" onClick={handleOperation}>Delete Row</button>
+					<button value="Advanced" onClick={handleOperation}>Advanced Ops</button>
+				</div>
+				<div>
+					<label>OLAP Queries: </label>
 					<button value="Rollup" onClick={handleOperation}>Rollup</button>
 					<button value="CubeComponent" onClick={handleOperation}>Cube</button>
 					<button value="RankComponent" onClick={handleOperation}>Rank</button>
@@ -98,9 +101,9 @@ const QueryPage = () => {
 				</div>
 				<br></br>
 				<div>
-					<label>User Input: </label>
+					{/* <label>User Input: </label>  */}
 					{/* <input type="text" value={textInput} onChange={handleTextInputChange} />
-          (Dose nothing currently) */}
+          			(Does nothing currently) */}
 				</div>
 
 				<div className={styles.myboxborder}>
