@@ -4,7 +4,7 @@ import DatabaceFetchWrapper from '../components/DatabaceFetchWrapper';
 import DisplayTableFromJSON from '../components/TableDisplay';
 
 export default function ViewComponent(data) {
-    const[query_text, setQueryText] = useState(`CREATE VIEW public."United States" AS
+    const[query_text, setQueryText] = useState(`CREATE VIEW public."France" AS
     SELECT name, iata, icao
     FROM airlines
     WHERE country = 'United States';`)
