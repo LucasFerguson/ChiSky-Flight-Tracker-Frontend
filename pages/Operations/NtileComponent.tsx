@@ -6,8 +6,8 @@ import DisplayTableFromJSON from '../components/TableDisplay';
 
 export default function NtileComponent(data) {
     const[query_text, setQueryText] = useState(`SELECT *,
-    NTILE (4) OVER (ORDER BY engine_count) AS ‘fourth_ntile’
-    FROM aircraft_types;`)
+    NTILE (4) OVER (ORDER BY length) AS ‘fourth_ntile’
+    FROM routes;`)
     const[json_from_database, setJSON] = useState({ fields: [], rows: [] });
 
     const handleChange = (e) => {
