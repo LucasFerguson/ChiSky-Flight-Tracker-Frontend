@@ -28,7 +28,7 @@ import DisplayTableFromJSON from '../components/TableDisplay';
 
 export default function RecursiveComponent(data) {
 
-	const [query_text, setQueryText] = useState(`WITH RECURSIVE ReachableAirports AS ( SELECT icao_code AS reachable_airport, 1 AS hops FROM airports WHERE icao_code = 'ENFL' UNION ALL SELECT r.destination AS reachable_airport, ra.hops + 1 AS hops FROM ReachableAirports ra JOIN Routes r ON ra.reachable_airport = r.origin WHERE ra.hops < 50  -- Stop after 10 hops ) SELECT reachable_airport, min(hops) AS shortest_hops FROM ReachableAirports GROUP BY reachable_airport ORDER BY min(hops);`);
+	const [query_text, setQueryText] = useState(`WITH RECURSIVE ReachableAirports AS ( SELECT icao_code AS reachable_airport, 1 AS hops FROM airports WHERE icao_code = 'ENFL' UNION ALL SELECT r.destination AS reachable_airport, ra.hops + 1 AS hops FROM ReachableAirports ra JOIN Routes r ON ra.reachable_airport = r.origin WHERE ra.hops < 50 ) SELECT reachable_airport, min(hops) AS shortest_hops FROM ReachableAirports GROUP BY reachable_airport ORDER BY min(hops);`);
 	const [json_from_database, setJSON] = useState({ fields: [], rows: [] });
 
 	const handleChange = (e) => {
