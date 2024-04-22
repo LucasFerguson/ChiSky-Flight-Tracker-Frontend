@@ -12,6 +12,7 @@ import NtileComponent from './Operations/NtileComponent';
 import FirstValueComponent from './Operations/FirstValueComponent';
 import UnboundedPrecedingComponent from './Operations/UnboundedPrecedingComponent';
 import RecursiveComponent from './Operations/RecursiveComponent';
+import ViewComponent from './Operations/ViewComponent';
 
 import ConsoleApp from './components/ConsoleApp';
 // import Header from './components/header';
@@ -93,6 +94,7 @@ const QueryPage = () => {
 					<button value="FirstValueComponent" onClick={handleOperation}>First Value</button>
 					<button value="UnboundedPrecedingComponent" onClick={handleOperation}>Unbounded Preceding</button>
 					<button value="RecursiveComponent" onClick={handleOperation}>Recursive</button>
+					<button value="ViewComponent" onClick={handleOperation}>View</button>
 				</div>
 				<br></br>
 				<div>
@@ -115,6 +117,7 @@ const QueryPage = () => {
 					{selectedOperation == "FirstValueComponent" && <FirstValueComponent table={selectedOption} />}
 					{selectedOperation == "UnboundedPrecedingComponent" && <UnboundedPrecedingComponent table={selectedOption} />}
 					{selectedOperation == "RecursiveComponent" && <RecursiveComponent table={selectedOption} />}
+					{selectedOperation == "ViewComponent" && <ViewComponent table={selectedOption} />}
 				</div>
 
 				{/* <QueryDisplay></QueryDisplay> */}
