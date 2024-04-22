@@ -11,6 +11,7 @@ import DenseRankComponent from './Operations/DenseRankComponent';
 import NtileComponent from './Operations/NtileComponent';
 import FirstValueComponent from './Operations/FirstValueComponent';
 import UnboundedPrecedingComponent from './Operations/UnboundedPrecedingComponent';
+import RecursiveComponent from './Operations/RecursiveComponent';
 
 import ConsoleApp from './components/ConsoleApp';
 // import Header from './components/header';
@@ -89,8 +90,9 @@ const QueryPage = () => {
 					<button value="RankComponent" onClick={handleOperation}>Rank</button>
 					<button value="DenseRankComponent" onClick={handleOperation}>Dense Rank</button>
 					<button value="NtileComponent" onClick={handleOperation}>Ntile</button>
- 					<button value="FirstValueComponent" onClick={handleOperation}>First Value</button>
+					<button value="FirstValueComponent" onClick={handleOperation}>First Value</button>
 					<button value="UnboundedPrecedingComponent" onClick={handleOperation}>Unbounded Preceding</button>
+					<button value="RecursiveComponent" onClick={handleOperation}>Recursive</button>
 				</div>
 				<br></br>
 				<div>
@@ -112,6 +114,7 @@ const QueryPage = () => {
 					{selectedOperation == "NtileComponent" && <NtileComponent table={selectedOption} />}
 					{selectedOperation == "FirstValueComponent" && <FirstValueComponent table={selectedOption} />}
 					{selectedOperation == "UnboundedPrecedingComponent" && <UnboundedPrecedingComponent table={selectedOption} />}
+					{selectedOperation == "RecursiveComponent" && <RecursiveComponent table={selectedOption} />}
 				</div>
 
 				{/* <QueryDisplay></QueryDisplay> */}
