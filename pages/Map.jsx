@@ -36,9 +36,30 @@ const scatterplotLayer = new ScatterplotLayer({
 });
 
 const Map = () => {
+
+
+
+
+    // const fetchFlightStatusData = async () => {
+    //     try {
+    //         console.log("tableName= aircraft_status")
+    //         const response = await fetch(`http://localhost:3011/select/aircraft_status`);
+    //         if (!response.ok) {
+    //             throw new Error('Failed to fetch data');
+    //         }
+    //         const data = await response.json();
+    //         console.log('Data:', data);
+    //     } catch (error) {
+    //         console.error('Error fetching data:', error);
+    //     }
+    // };
+
+    // fetchFlightStatusData();
+
+
     return (
         <div>
-            <p>Hi this is the map</p>
+            {/* <p>Hi this is the map</p> */}
             <MapApp></MapApp>
             {/* <DeckGL
                 initialViewState={initialViewState}

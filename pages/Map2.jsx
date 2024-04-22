@@ -11,7 +11,7 @@ import { ScenegraphLayer } from '@deck.gl/mesh-layers';
 // Data provided by the OpenSky Network, http://www.opensky-network.org
 // const DATA_URL = 'https://opensky-network.org/api/states/all';
 // For local debugging
-const DATA_URL = './all.json';
+const DATA_URL = 'http://localhost:3011/select/aircraft_status';
 const MODEL_URL =
 	'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/scenegraph-layer/airplane.glb';
 const REFRESH_TIME_SECONDS = 60;
@@ -69,11 +69,108 @@ const DATA_INDEX = {
 
 async function fetchData() {
 	const resp = await fetch(DATA_URL);
-	const { time, states } = (await resp.json());
-	// make lastContact timestamp relative to response time
-	for (const a of states) {
-		a[DATA_INDEX.LAST_CONTACT] -= time;
+	console.log('fetchData', resp);
+
+	let data_json = await resp.json();
+	console.log('data_json', data_json);
+	console.log('data_json one flight', data_json.rows[1]);
+
+	let states = [];
+
+	for (let i = 0; i < data_json.rows.length; i++) {
+
+		// Convert the data to the format expected by the deck.gl layer
+		// DeckGL Example
+		// [
+		// 	"e49407",
+		// 	"",
+		// 	"Brazil",
+		// 	1699549708,
+		// 	1699549708,
+		// 	-46.7585,
+		// 	-23.4154,
+		// 	1234.44,
+		// 	false,
+		// 	75.17,
+		// 	149.57,
+		// 	0.98,
+		// 	null,
+		// 	1287.78,
+		// 	null,
+		// 	false,
+		// 	0
+		// ],
+
+		// My data Example
+		// {
+		// 	"registrationid": "LFCY",
+		// 	"altitude": "8000",
+		// 	"altitude_change": "D",
+		// 	"groundspeed": "341",
+		// 	"heading": "360",
+		// 	"latitude": "39.1802",
+		// 	"longitude": "-84.4204",
+		// 	"timestamp": "12:01 PM",
+		// 	"typeid": "HR16 4844 9788 4540 2323 2"
+		// }
+
+
+		let flight = [];
+
+
+		flight.push(data_json.rows[i].registrationid); // "4b1816",
+		flight.push(data_json.rows[i].registrationid); // "SWR64C  ",
+		flight.push(data_json.rows[i].registrationid); // "Switzerland",
+		flight.push(data_json.rows[i].timestamp); // 1699549717,
+		flight.push(data_json.rows[i].timestamp); // 1699549717,
+		flight.push(parseInt(data_json.rows[i].longitude)); // 8.4297,
+		flight.push(parseInt(data_json.rows[i].latitude)); // 47.4387,
+		flight.push(parseInt(data_json.rows[i].altitude)); // 2148.84,
+		flight.push(false); // false,
+		flight.push(parseInt(data_json.rows[i].groundspeed)); // 113.21,
+		flight.push(parseInt(data_json.rows[i].heading)); // 254.45,
+		flight.push(parseInt(11.38)); // 11.38,
+		flight.push([]); // null,
+		flight.push(data_json.rows[i].altitude); // 2156.46,
+		flight.push([]); // "1000",
+		flight.push(false); // false,
+		flight.push(0); // 0,
+
+
+		// [
+		// 	"KUKI",
+		// 	"KUKI",
+		// 	"KUKI",
+		// 	"1:03 AM",
+		// 	"1:03 AM",
+		// 	-83,
+		// 	39,
+		// 	"3000",
+		// 	false,
+		// 	"180",
+		// 	"030",
+		// 	"C",
+		// 	[],
+		// 	"3000",
+		// 	[],
+		// 	0
+		// ]
+
+		states.push(flight);
+
 	}
+
+	console.log('states', states);
+
+
+	// const { time, states } = (await resp.json());
+
+	// console.log('fetchData', resp);
+
+	// make lastContact timestamp relative to response time
+	// for (const a of states) {
+	// 	a[DATA_INDEX.LAST_CONTACT] -= time;
+	// }
 	return states;
 }
 
@@ -95,41 +192,65 @@ export default function MapApp({
 	mapStyle = MAP_STYLE
 }) {
 	const [data, setData] = useState();
-	const [timer, setTimer] = useState({ id: null });
 
 	useEffect(() => {
-		timer.id++;
-		fetchData()
-			.then(newData => {
-				if (timer.id === null) {
-					// Component has unmounted
-					return;
-				}
-				// In order to keep the animation smooth we need to always return the same
-				// object at a given index. This function will discard new objects
-				// and only update existing ones.
-				if (data) {
-					const dataById = {};
-					newData.forEach(entry => (dataById[entry[DATA_INDEX.UNIQUE_ID]] = entry));
-					newData = data.map(entry => dataById[entry[DATA_INDEX.UNIQUE_ID]] || entry);
-				}
-
+		async function fetchDataAndUpdateState() {
+			try {
+				const newData = await fetchData();
 				setData(newData);
-
 				if (onDataLoad) {
-					onDataLoad(newData.length);
+					onDataLoad(newData);
 				}
-			})
-			.finally(() => {
-				const timeoutId = setTimeout(() => setTimer({ id: timeoutId }), REFRESH_TIME_SECONDS * 1000);
-				timer.id = timeoutId;
-			});
+			} catch (error) {
+				console.error('Error fetching data:', error);
+			}
+		}
+
+		fetchDataAndUpdateState();
+
+		// Optionally, you can use a timer to fetch data periodically
+		const intervalId = setInterval(fetchDataAndUpdateState, REFRESH_TIME_SECONDS * 1000);
 
 		return () => {
-			clearTimeout(timer.id);
-			timer.id = null;
+			clearInterval(intervalId);
 		};
-	}, [timer, data]);
+	}, [onDataLoad]); // Dependency array ensures useEffect runs only once on mount and when onDataLoad changes
+
+
+
+	// useEffect(() => {
+	// 	timer.id++;
+	// 	fetchData()
+	// 		.then(newData => {
+	// 			if (timer.id === null) {
+	// 				// Component has unmounted
+	// 				return;
+	// 			}
+	// 			// In order to keep the animation smooth we need to always return the same
+	// 			// object at a given index. This function will discard new objects
+	// 			// and only update existing ones.
+	// 			if (data) {
+	// 				const dataById = {};
+	// 				newData.forEach(entry => (dataById[entry[DATA_INDEX.UNIQUE_ID]] = entry));
+	// 				newData = data.map(entry => dataById[entry[DATA_INDEX.UNIQUE_ID]] || entry);
+	// 			}
+
+	// 			setData(newData);
+
+	// 			if (onDataLoad) {
+	// 				onDataLoad(newData.length);
+	// 			}
+	// 		})
+	// 		.finally(() => {
+	// 			const timeoutId = setTimeout(() => setTimer({ id: timeoutId }), REFRESH_TIME_SECONDS * 1000);
+	// 			timer.id = timeoutId;
+	// 		});
+
+	// 	return () => {
+	// 		clearTimeout(timer.id);
+	// 		timer.id = null;
+	// 	};
+	// }, [timer, data]);
 
 	const layer = new ScenegraphLayer({
 		id: 'scenegraph-layer',
@@ -163,14 +284,16 @@ export default function MapApp({
 	});
 
 	return (
-		<DeckGL
-			layers={[layer]}
-			initialViewState={INITIAL_VIEW_STATE}
-			controller={true}
-			getTooltip={getTooltip}
-		>
-			<Map reuseMaps mapStyle={mapStyle} />
-		</DeckGL>
+		<div style={{ height: '90vh', width: '100%', position: 'fixed', backgroundColor: "lightblue" }} >
+			<DeckGL
+				layers={[layer]}
+				initialViewState={INITIAL_VIEW_STATE}
+				controller={true}
+				getTooltip={getTooltip}
+			>
+				<Map reuseMaps mapStyle={mapStyle} />
+			</DeckGL>
+		</div >
 	);
 }
 
