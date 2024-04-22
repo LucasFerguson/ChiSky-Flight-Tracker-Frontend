@@ -3,7 +3,7 @@ import styles from '../../styles/Home.module.css';
 
 const DisplayTableFromJSON = ({ json_data }) => {
 	const [currentPage, setCurrentPage] = useState(1);
-	const [entriesPerPage, setEntriesPerPage] = useState(100);
+	const [entriesPerPage, setEntriesPerPage] = useState(10);
 
 	if (!json_data) return (<div>Error: No data received. Backend may not be running</div>)
 

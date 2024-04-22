@@ -95,7 +95,7 @@ export default function CreateOperation(data) {
 		<div className={styles.querybox}>
 			<p>Selected Table: {data.table}</p>
 			<h2>Create Operation</h2>
-			<p>Enter Data</p>
+			<p>Enter data to create a new tuple in the selected table.</p>
 			<form onSubmit={handleSubmit}>
 
 				{json_from_database.fields.map(field => (
