@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../../styles/Home.module.css';
-import DatabaceFetchWrapper from '../components/DatabaceFetchWrapper';
+import DatabaseFetchWrapper from '../components/DatabaseFetchWrapper';
 import DisplayTableFromJSON from '../components/TableDisplay';
 
 export default function ViewComponent(data) {
@@ -17,7 +17,7 @@ export default function ViewComponent(data) {
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-      let db = new DatabaceFetchWrapper();
+      let db = new DatabaseFetchWrapper();
       db.fetchData(query_text).then((data)=> {
         setJSON(data);
       })

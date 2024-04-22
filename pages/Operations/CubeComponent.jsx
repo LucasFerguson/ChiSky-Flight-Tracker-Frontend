@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import styles from '../../styles/Home.module.css';
 
-import DatabaceFetchWrapper from '../components/DatabaceFetchWrapper';
+import DatabaceFetchWrapper from '../components/DatabaseFetchWrapper';
 import DisplayTableFromJSON from '../components/TableDisplay';
 
 // --CUBED-- (Works)

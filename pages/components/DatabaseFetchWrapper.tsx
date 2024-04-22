@@ -1,5 +1,5 @@
 
-export default class DatabaceFetchWrapper {
+export default class DatabaseFetchWrapper {
 	url = 'http://localhost:3011/query';
 	constructor() {
 		this.url = 'http://localhost:3011/query';
