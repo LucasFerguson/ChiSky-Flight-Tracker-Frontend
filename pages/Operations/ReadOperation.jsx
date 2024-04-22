@@ -61,7 +61,7 @@ export default function ReadOperation(data) {
 		<div className={styles.querybox}>
 
 			<DebugInfo component_name="QueryDisplay" />
-			<p>Selected Table: {data.table}</p>
+			<p>Selected Table: [ {data.table} ]</p>
 			<h2>Read</h2>
 
 			<DisplayTableFromJSON json_data={json_from_database} />

@@ -35,7 +35,7 @@ export default function DeleteOperation(data) {
 	return <div className={styles.querybox}>
 		<div>
 			<h2> Delete Operation Page</h2>
-			<p>Selected Table: {data.table}</p>
+			<p>Selected Table: [ {data.table} ]</p>
 			<form onSubmit={handleSubmit}>
 				<label>
 					Enter Primary Key of row to delete:
