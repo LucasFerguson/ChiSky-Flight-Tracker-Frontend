@@ -5,6 +5,8 @@ const DisplayTableFromJSON = ({ json_data }) => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [entriesPerPage, setEntriesPerPage] = useState(100);
 
+	if (!json_data) return (<div>Error: No data received. Backend may not be running</div>)
+
 	const totalRows = json_data.rows.length;
 	const totalPages = Math.ceil(totalRows / entriesPerPage);
 	const indexOfLastRow = currentPage * entriesPerPage;
