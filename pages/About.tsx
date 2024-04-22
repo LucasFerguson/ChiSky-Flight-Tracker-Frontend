@@ -36,7 +36,7 @@ const AboutMe = () => {
   ];
 
   return (
-    <div className={styles.homepage}>
+    <div className={styles.about}>
       <Background />
 
       <div></div>

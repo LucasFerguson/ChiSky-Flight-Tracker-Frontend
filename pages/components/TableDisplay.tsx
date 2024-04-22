@@ -29,7 +29,7 @@ const DisplayTableFromJSON = ({ json_data }) => {
 	return (
 		<div style={{ overflowX: 'auto' }}>
 
-			<div>
+			<div  className={styles.querybox}>
 				<span>Page Settings: </span>
 				<button onClick={prevPage} disabled={currentPage === 1}>Previous</button>
 				<button onClick={nextPage} disabled={indexOfLastRow >= totalRows}>Next</button>
