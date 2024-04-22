@@ -8,6 +8,7 @@ import RankComponent from './Operations/RankComponent';
 import RollupComponent from './Operations/RollupComponent';
 import CubeComponent from './Operations/CubeComponent';
 import DenseRankComponent from './Operations/DenseRankComponent';
+import NtileComponent from './Operations/NtileComponent';
 
 import ConsoleApp from './components/ConsoleApp';
 // import Header from './components/header';
@@ -85,6 +86,7 @@ const QueryPage = () => {
 					<button value="CubeComponent" onClick={handleOperation}>Cube</button>
 					<button value="RankComponent" onClick={handleOperation}>Rank</button>
 					<button value="DenseRankComponent" onClick={handleOperation}>Dense Rank</button>
+					<button value="NtileComponent" onClick={handleOperation}>Ntile</button>
 				</div>
 				<br></br>
 				<div>
@@ -103,6 +105,7 @@ const QueryPage = () => {
 					{selectedOperation == "CubeComponent" && <CubeComponent table={selectedOption} />}
 					{selectedOperation == "RankComponent" && <RankComponent table={selectedOption} />}
 					{selectedOperation == "DenseRankComponent" && <DenseRankComponent table={selectedOption} />}
+					{selectedOperation == "NtileComponent" && <NtileComponent table={selectedOption} />}
 				</div>
 
 				{/* <QueryDisplay></QueryDisplay> */}

@@ -135,10 +135,10 @@ export default function Advanced(data) {
 
 
 // --NTILE()-- (Works)
-// SELECT * FROM (
-// 	SELECT *,
-// 	RANK() OVER (ORDER BY length ASC) AS l_rank
-//  FROM routes) as table_routes;
+// SELECT *,
+// NTILE (4) OVER (ORDER BY engine_count) AS ‘fourth_ntile’
+// FROM aircraft_types;
+
 
 // --Unbounded Preceding-- (Works)
 // SELECT *,
