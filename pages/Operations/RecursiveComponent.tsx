@@ -48,10 +48,16 @@ export default function RecursiveComponent(data) {
 	return (
 		<div className={styles.querybox}>
 			<div>
-				<h2>Rollup Operation Page</h2>
+				<h2>Recursive Routes Traversal Operation Page</h2>
 				{/* <p>Selected Table: [ {data ? data.table : ""} ]</p> */}
 
 				<p> Query: {query_text} </p>
+				<p>
+					Explanation:
+				</p>
+				<p>
+					This SQL query finds airports that can be reached from a chosen starting point. It recursively finds all connecting airports and displays the number of hops it takes to them.
+				</p>
 
 				<form onSubmit={handleSubmit}>
 					<div>
