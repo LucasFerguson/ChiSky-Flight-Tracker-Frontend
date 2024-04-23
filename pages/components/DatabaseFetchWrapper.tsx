@@ -1,9 +1,9 @@
 
 export default class DatabaseFetchWrapper {
 	url = 'http://localhost:3011/query';
-	constructor() {
-		this.url = 'http://localhost:3011/query';
-	}
+	// constructor() {
+	// 	this.url = 'http://localhost:3011/query';
+	// }
 	async fetchData(query) {
 		try {
 			const response = await fetch(this.url, {

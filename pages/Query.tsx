@@ -21,14 +21,14 @@ import ConsoleApp from './components/ConsoleApp';
 import styles from '../styles/Home.module.css';
 import Advanced from './Operations/Advanced';
 
-const QueryPage = () => {
+const QueryPage = (props) => {
 
 	const [selectedOption, setSelectedOption] = useState('');
 	const [textInput, setTextInput] = useState('');
 	const [selectedOperation, setselectedOperation] = useState('Create');
 
 
-	let aaaaa = new ConsoleApp();
+	let aaaaa = new ConsoleApp(props);
 
 	const handleOptionChange = (event) => {
 		setSelectedOption(event.target.value);
