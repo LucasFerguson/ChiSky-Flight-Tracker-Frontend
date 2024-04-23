@@ -1,4 +1,6 @@
 
+import React from 'react'
+
 export default class DatabaseFetchWrapper {
 	url = 'http://localhost:3011/query';
 	// constructor() {
