@@ -29,4 +29,6 @@ export default class DatabaseFetchWrapper {
 			console.error('Error:', error.message);
 		}
 	}
+
+
 }
