@@ -1,6 +1,7 @@
 // ReadOperation
 import { useState, useEffect } from 'react';
-// import styles from '../../styles/Home.module.css';
+import styles from '../../styles/Home.module.css';
+import DisplayTableFromJSON from '../components/TableDisplay';
 
 
 export default function ReadOperation(data) {
@@ -10,6 +11,7 @@ export default function ReadOperation(data) {
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
+		setLoading(true);
 		const fetchData = async (tableName) => {
 
 			if (tableName == "") {
@@ -39,15 +41,16 @@ export default function ReadOperation(data) {
 	}, [data.table]);
 
 	if (loading) {
-		return <div>
+		return <div className={styles.querybox}>
 			<DebugInfo component_name="QueryDisplay" />
 			<p>Selected Table: {data.table}</p>
-			<p>Loading...</p>;
+			<p>Loading...</p>
+			<img src="https://media1.giphy.com/media/uIJBFZoOaifHf52MER/200w.gif?cid=6c09b9529ry67rkxriku5ai6omcaegqxtchadtx84q511l9p&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="" />
 		</div>
 	}
 
 	if (error) {
-		return <div>
+		return <div className={styles.querybox}>
 			<DebugInfo component_name="QueryDisplay" />
 			<p>Selected Table: {data.table}</p>
 			<p>Error: {error.message}</p>;
@@ -55,10 +58,10 @@ export default function ReadOperation(data) {
 	}
 
 	return (
-		<div>
+		<div className={styles.querybox}>
 
 			<DebugInfo component_name="QueryDisplay" />
-			<p>Selected Table: {data.table}</p>
+			<p>Selected Table: [ {data.table} ]</p>
 			<h2>Read</h2>
 
 			<DisplayTableFromJSON json_data={json_from_database} />
@@ -130,29 +133,5 @@ const DebugInfo = (data) => {
 			[DEBUG Info] React Component: {data.component_name}
 		</div>
 
-	);
-};
-
-
-const DisplayTableFromJSON = ({ json_data }) => {
-	return (
-		<table>
-			<thead>
-				<tr>
-					{json_data.fields.map(field => (
-						<th key={field.name}>{field.name}</th>
-					))}
-				</tr>
-			</thead>
-			<tbody>
-				{json_data.rows.map((row, index) => (
-					<tr key={index}>
-						{json_data.fields.map(field => (
-							<td key={`${index}-${field.name}`}>{row[field.name]}</td>
-						))}
-					</tr>
-				))}
-			</tbody>
-		</table>
 	);
 };

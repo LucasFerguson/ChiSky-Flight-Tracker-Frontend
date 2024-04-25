@@ -1,5 +1,6 @@
 // CreateOperation
 import React, { useState, useEffect } from 'react';
+import styles from '../../styles/Home.module.css';
 
 export default function CreateOperation(data) {
 	const [json_from_database, setJSON] = useState([]);
@@ -16,6 +17,7 @@ export default function CreateOperation(data) {
 	}
 
 	useEffect(() => {
+		setLoading(true);
 		const fetchData = async (tableName) => {
 			if (tableName === "") {
 				console.log("Please Select Table!")
@@ -71,17 +73,18 @@ export default function CreateOperation(data) {
 
 	if (loading) {
 		return (
-			<div>
-				<p>Selected Table: {data.table}</p>
+			<div className={styles.querybox}>
+				<p>Selected Table: [ {data.table} ]</p>
 				<p>Error: Please Select Table!</p>
 				<p>Loading...</p>
+				<img src="https://media1.giphy.com/media/uIJBFZoOaifHf52MER/200w.gif?cid=6c09b9529ry67rkxriku5ai6omcaegqxtchadtx84q511l9p&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="" />
 			</div>
 		);
 	}
 
 	if (error) {
 		return (
-			<div>
+			<div className={styles.querybox}>
 				<p>Selected Table: {data.table}</p>
 				<p>Error: {error.message}</p>
 			</div>
@@ -89,10 +92,10 @@ export default function CreateOperation(data) {
 	}
 
 	return (
-		<div>
-			<p>Selected Table: {data.table}</p>
+		<div className={styles.querybox}>
+			<p>Selected Table: [ {data.table} ]</p>
 			<h2>Create Operation</h2>
-			<p>Enter Data</p>
+			<p>Enter data to create a new tuple in the selected table.</p>
 			<form onSubmit={handleSubmit}>
 
 				{json_from_database.fields.map(field => (
@@ -117,33 +120,9 @@ export default function CreateOperation(data) {
 
 const DebugInfo = (data) => {
 	return (
-		<div>
+		<div className={styles.querybox}>
 			[DEBUG Info] React Component: {data.component_name}
 		</div>
 
-	);
-};
-
-
-const DisplayTableFromJSON = ({ json_data }) => {
-	return (
-		<table>
-			<thead>
-				<tr>
-					{json_data.fields.map(field => (
-						<th key={field.name}>{field.name}</th>
-					))}
-				</tr>
-			</thead>
-			<tbody>
-				{json_data.rows.map((row, index) => (
-					<tr key={index}>
-						{json_data.fields.map(field => (
-							<td key={`${index}-${field.name}`}>{row[field.name]}</td>
-						))}
-					</tr>
-				))}
-			</tbody>
-		</table>
 	);
 };

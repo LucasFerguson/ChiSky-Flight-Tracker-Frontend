@@ -1,6 +1,5 @@
 import styles from '../styles/Home.module.css';
-// "header" -> {styles.header}
-// it says styles is declared but never read, hover over import
+
 export default function Header() {
 	return <div class={styles.header}>
   <div class={styles.logo}>

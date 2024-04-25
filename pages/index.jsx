@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import Header from './header';
-import Footer from './footer';
+import Header from './components/header';
+import Footer from './components/footer';
 import QueryDisplay from './QueryDisplay';
-import ConsoleApp from "./ConsoleApp";
+import ConsoleApp from "./components/ConsoleApp";
 
 
+// this is the homepage of the website 
 
 export default function Home() {
 
@@ -14,13 +15,12 @@ export default function Home() {
   let aaaaa = new ConsoleApp();
 
   return (
-    
+
     <div className={styles.homepage}>
 
-      <Header />
+      {/* <Header /> Header is no longer needed here because of pages/_app.tsx    */}
 
-
-      <QueryDisplay />
+      
 
       <Head>
         <title>Create Next App</title>
@@ -28,15 +28,27 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className={styles.title}>
-          Welcome to CS425 woooo <a href="MM">Run a query</a>
-        </h1>
-        
-        <ConsoleApp />
+        <div className={styles.intro}>
+        <h1>
+          ChiSky Flight Tracker
+        </h1> 
+        </div>
 
+        <div className={styles.info}>
+        <p>
+          ChiSky Flight Tracker is an experminetal flight tracker implementing SQL databases to bring you flight information using the FlightAware AeroAPI.
+        </p>
+        <p>
+          Created by 4 students for our Database Orginization course, ChiSky is the pinacle of our semester of learning. Going above and beyond, the application has access to the AeroAPI and can update itself.  
+        </p> 
+        <p>
+          Run an SQL Query and access our database on our Query page, learn about and contact the team on the About page, or moniter and track flights above IIT's campus on our Map page!. 
+        </p>
+        </div>
+               
       </main>
 
-      
+
       {/* <style jsx>{`
         main {
           padding: 5rem 0;
@@ -104,7 +116,7 @@ export default function Home() {
         }
       `}</style> */}
 
-      <Footer />
+      {/* <Footer /> Footer is no longer needed here because of pages/_app.tsx */}
 
     </div>
   );
